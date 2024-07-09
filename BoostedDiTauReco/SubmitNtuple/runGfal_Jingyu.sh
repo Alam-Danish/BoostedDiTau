@@ -9,18 +9,18 @@ setenv MSAMPLENAME ALP_M-10_HT-100to400_preVFPUL16
 
 @ j = -1
 
-foreach part (`gfal-ls root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE`)
+foreach part (`gfal-ls root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE`)
     setenv PART $part
     echo $PART
     if ($PART =~ *preVFPUL16* && $PART =~ *v5) then
 	echo $PART
 	@ i = 0
-	setenv DATE `gfal-ls root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART`
+	setenv DATE `gfal-ls root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART`
 	echo $DATE
-	foreach num (`gfal-ls root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART/$DATE`)
+	foreach num (`gfal-ls root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART/$DATE`)
 	    setenv NUM $num
 	    echo $NUM
-	    setenv namestr root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART/$DATE/$NUM/
+	    setenv namestr root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/$SAMPLE/$PART/$DATE/$NUM/
 	    foreach file (`gfal-ls $namestr`)
 		if ($i % 100 == 0) then
 		    @ j += 1

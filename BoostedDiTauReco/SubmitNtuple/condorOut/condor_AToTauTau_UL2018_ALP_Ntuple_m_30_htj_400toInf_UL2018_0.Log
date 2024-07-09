@@ -1,0 +1,33 @@
+040 (3536312.000.000) 2024-07-08 16:52:57 Started transferring input files
+	Transferring to host: <131.225.189.172:9618?addrs=[2620-6a-0-8421-f0-0-189-172]-9618+131.225.189.172-9618&alias=cmswn2122.fnal.gov&noUDP&sock=slot1_26_2390_b89a_27872>
+...
+040 (3536312.000.000) 2024-07-08 16:52:57 Finished transferring input files
+...
+001 (3536312.000.000) 2024-07-08 16:52:58 Job executing on host: <131.225.189.172:9618?addrs=[2620-6a-0-8421-f0-0-189-172]-9618+131.225.189.172-9618&alias=cmswn2122.fnal.gov&noUDP&sock=startd_1987_7ec5>
+	SlotName: slot1_26@cmswn2122.fnal.gov
+	CondorScratchDir = "/storage/local/data1/condor/execute/dir_2729682"
+	Cpus = 1
+	Disk = 3468722
+	Memory = 2048
+...
+040 (3536312.000.000) 2024-07-08 16:53:05 Started transferring output files
+...
+040 (3536312.000.000) 2024-07-08 16:53:05 Finished transferring output files
+...
+005 (3536312.000.000) 2024-07-08 16:53:06 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	1386  -  Run Bytes Sent By Job
+	11440  -  Run Bytes Received By Job
+	1386  -  Total Bytes Sent By Job
+	11440  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :        0        1         1 
+	   Disk (KB)            :       43        4   3468722 
+	   Memory (MB)          :              2048      2048 
+
+	Job terminated of its own accord at 2024-07-08T21:53:05Z with exit-code 1.
+...
