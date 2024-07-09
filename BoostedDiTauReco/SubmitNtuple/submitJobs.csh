@@ -6,7 +6,7 @@ setenv MODE $3
 
 setenv CMSSW_BASE /uscms/home/dalam/nobackup/TCPNtuple/CMSSW_12_1_0_pre3
 
-setenv OutputPrefix root://cmseos.fnal.gov//store/user/dalam/UL2018/
+setenv OutputPrefix root://cmseos.fnal.gov//store/user/dalam/UL2017/
 
 
 setenv offset 0
@@ -37,5 +37,5 @@ end
 # echo $MASS
 # setenv filelist ./filelists/${SAMPLE}/UL${YEAR}/${MASS}/${MASS}
 # setenv logFile ${SAMPLE}_UL${YEAR}_${MASS}
-# echo $filelist
+# echo $fileilist
 # condor_submit condor.jdl

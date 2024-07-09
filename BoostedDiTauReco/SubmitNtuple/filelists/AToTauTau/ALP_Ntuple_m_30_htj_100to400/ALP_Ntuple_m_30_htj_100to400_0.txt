@@ -1,6 +1,0 @@
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_1.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_10.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_3.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_4.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_8.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/AToTauTau_ALP_M-30_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-30_HT-100to400_Summer20UL17_miniAODv2_v2/230912_145240/0000/TCPNtuple_9.root

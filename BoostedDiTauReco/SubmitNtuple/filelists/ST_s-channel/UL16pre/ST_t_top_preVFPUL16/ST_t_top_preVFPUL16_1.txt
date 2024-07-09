@@ -1,0 +1,5 @@
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/Ntuple_ST_s_preVFPUL16_miniAODv2_v5/240514_010324/0000/TCPNtuple_Backgrounds_18.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/Ntuple_ST_s_preVFPUL16_miniAODv2_v5/240514_010324/0000/TCPNtuple_Backgrounds_103.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/Ntuple_ST_s_preVFPUL16_miniAODv2_v5/240514_010324/0000/TCPNtuple_Backgrounds_48.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/Ntuple_ST_s_preVFPUL16_miniAODv2_v5/240514_010324/0000/TCPNtuple_Backgrounds_16.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8/Ntuple_ST_s_preVFPUL16_miniAODv2_v5/240514_010324/0000/TCPNtuple_Backgrounds_31.root

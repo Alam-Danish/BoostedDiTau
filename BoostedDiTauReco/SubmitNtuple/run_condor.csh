@@ -6,7 +6,7 @@ echo "System software: `cat /etc/redhat-release`" #Operating System on that node
 
 source /cvmfs/cms.cern.ch/cmsset_default.csh  ## if a bash script, use .sh instead of .csh
 
-xrdcp root://cmseos.fnal.gov//store/user/dalam/CMSSW_12X.tgz CMSSW_12X.tgz
+xrdcp root://cmseos.fnal.gov//store/user/dalam/DIS/TCPAnalysis/CMSSW_12X.tgz CMSSW_12X.tgz
 
 tar -xf CMSSW_12X.tgz
 rm CMSSW_12X.tgz

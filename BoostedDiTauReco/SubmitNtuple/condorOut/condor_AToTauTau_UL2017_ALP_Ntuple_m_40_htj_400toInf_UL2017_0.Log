@@ -31,3 +31,36 @@
 
 	Job terminated of its own accord at 2024-07-08T21:39:46Z with exit-code 1.
 ...
+040 (33520926.000.000) 2024-07-09 01:31:06 Started transferring input files
+	Transferring to host: <131.225.188.68:9618?addrs=[2620-6a-0-8421-f0-0-188-68]-9618+131.225.188.68-9618&alias=cmswn2037.fnal.gov&noUDP&sock=slot1_6_2650_ea25_42661>
+...
+040 (33520926.000.000) 2024-07-09 01:31:06 Finished transferring input files
+...
+001 (33520926.000.000) 2024-07-09 01:31:07 Job executing on host: <131.225.188.68:9618?addrs=[2620-6a-0-8421-f0-0-188-68]-9618+131.225.188.68-9618&alias=cmswn2037.fnal.gov&noUDP&sock=startd_2356_9938>
+	SlotName: slot1_6@cmswn2037.fnal.gov
+	CondorScratchDir = "/storage/local/data1/condor/execute/dir_2593396"
+	Cpus = 1
+	Disk = 1742682
+	Memory = 2048
+...
+040 (33520926.000.000) 2024-07-09 02:01:15 Started transferring output files
+...
+040 (33520926.000.000) 2024-07-09 02:01:15 Finished transferring output files
+...
+005 (33520926.000.000) 2024-07-09 02:01:16 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	12077  -  Run Bytes Sent By Job
+	11452  -  Run Bytes Received By Job
+	12077  -  Total Bytes Sent By Job
+	11452  -  Total Bytes Received By Job
+	Partitionable Resources :     Usage  Request Allocated 
+	   Cpus                 :      0.00        1         1 
+	   Disk (KB)            : 102617           4   1742682 
+	   Memory (MB)          :               2048      2048 
+
+	Job terminated of its own accord at 2024-07-09T07:01:15Z with exit-code 0.
+...
