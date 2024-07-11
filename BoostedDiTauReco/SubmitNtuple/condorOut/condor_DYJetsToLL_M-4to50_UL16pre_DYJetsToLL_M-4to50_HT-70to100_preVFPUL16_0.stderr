@@ -1,0 +1,169 @@
+[8MB/19.45MB][ 41%][====================>                             ][8MB/s]  [19.45MB/19.45MB][100%][==================================================][19.45MB/s]  [19.45MB/19.45MB][100%][==================================================][19.45MB/s]  
+Warning: tau -> had decay declared for leg: Pt = 21.6756, eta = 0.156709, phi = 2.14996, mass = 1.10727 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 23.3579, eta = 0.614524, phi = 2.19543, mass = 1.03397 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 24.4196, eta = 2.2997, phi = -0.617021, mass = 0.438843 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 29.33, eta = 1.47227, phi = 2.2682, mass = 0.482878 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 20.8514, eta = -0.473494, phi = -1.41945, mass = 0.59124 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 22.9458, eta = 0.707545, phi = 2.69672, mass = 1.70434 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 27.5725, eta = 0.343246, phi = 1.75102, mass = 2.49611 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 21.5682, eta = 0.472415, phi = 0.97601, mass = 0.966335 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 32.9627, eta = -0.202728, phi = -1.76315, mass = 0.900671 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 20.8855, eta = -1.71239, phi = -1.88509, mass = 0.857752 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 28.3838, eta = 0.637713, phi = 1.45082, mass = 0.578312 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 25.7662, eta = 0.334067, phi = 2.78226, mass = 0.502265 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 48.1952, eta = 0.310576, phi = -2.21022, mass = 0.445637 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 37.6745, eta = 0.243295, phi = 0.718564, mass = 1.25045 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 32.2851, eta = 1.57287, phi = 2.57995, mass = 0.481669 !!
+ (mass expected in the range = 0.13957..0.13957)
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Server responded with an error: [3004] close does not refer to an open file
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Warning: tau -> had decay declared for leg: Pt = 22.66, eta = 0.628518, phi = 2.61756, mass = 0.389718 !!
+ (mass expected in the range = 0.13957..0.13957)
+Warning: tau -> had decay declared for leg: Pt = 27.3487, eta = -1.87223, phi = 2.4735, mass = 1.16876 !!
+ (mass expected in the range = 0.13957..0.13957)
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3011] Too many attempts to gain dfs read access to the file
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Error in <TNetXNGFile::Open>: [ERROR] Operation expired
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Error in <TNetXNGFile::Close>: [ERROR] Invalid session
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Error in <TNetXNGFile::Close>: [ERROR] Server responded with an error: [3004] close does not refer to an open file
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Unable to load sec.protocol plugin libXrdSecztn.so
+Unable to load sec.protocol plugin libXrdSecztn.so
+Error in <TNetXNGFile::Open>: [FATAL] Auth failed
+Error in <TTree::SetBranchStatus>: unknown branch -> TriggerObjects
+Traceback (most recent call last):
+  File "/srv/CMSSW_12_1_0_pre3/src/BoostedDiTau/BoostedDiTauReco/SubmitNtuple/plotBoostedTauTau.py", line 1037, in <module>
+    prweight = fchain.GetLeaf('prefiringWeight').GetValue()
+ReferenceError: attempt to access a null-pointer
