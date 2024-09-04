@@ -14,17 +14,18 @@ if __name__ == "__main__":
 
     version = args.version
     fname = args.fname
-
+    plotDir = "output/first"
+    outDir = "output/merged"
     for s in args.sample:
 
         smpl = s
         era = args.era
 
-        hist = "h_"+fname+"_"+era+"_Ntuple_"+smpl+"_"
+        hist = "h_"+fname+"_"+era+"_"+smpl+"_"
 
-        outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/mwulansa/UL2017/ | grep "+hist).read().split()
+       # outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2016pre/ | grep "+hist).read().split()
 
         searchString = hist+"*"
     
         print('hadd '+searchString.replace("*",version+".root")+' '+plotDir+'/'+searchString)
-        os.system('hadd '+searchString.replace("*",version+".root")+' '+plotDir+'/'+searchString)
+        os.system('hadd '+outDir+'/'+searchString.replace("*",version+".root")+' '+plotDir+'/'+searchString)

@@ -20,9 +20,11 @@ if __name__ == "__main__":
         smpl = s
         era = args.era
     
-        hist = "h_"+fname+"_"+era+"_Ntuple_"+smpl+"_"
+#        hist = "h_"+fname+"_"+era+"_Ntuple_"+smpl+"_"
+        hist = "h_"+fname+"_"+era+"_"+smpl+"_"
 
-        outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/mwulansa/UL2017/ | grep "+hist).read().split()
+
+        outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2016pre/ | grep "+hist).read().split()
 
         print(outputfiles)
         print(len(outputfiles))
@@ -33,7 +35,7 @@ if __name__ == "__main__":
 
         for fil in outputfiles:
             print(fil)
-            os.system("xrdcp root://cmseos.fnal.gov//store/user/mwulansa/UL2017/"+fil+" "+plotDir+"/"+fil)
+            os.system("xrdcp root://cmseos.fnal.gov//store/user/dalam/UL2016pre/"+fil+" "+plotDir+"/"+fil)
 
         searchString = hist+"*"        
 

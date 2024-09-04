@@ -1,8 +1,8 @@
 [FERMIHTC-APPTAINER]: INFO -- ApptainerImage classAd detected
 [FERMIHTC-APPTAINER]: INFO -- Attempting to run job in /cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7
-[FERMIHTC-APPTAINER]: INFO -- Running /cvmfs/oasis.opensciencegrid.org/mis/apptainer/current/bin/apptainer exec --pid --ipc --contain --bind /cvmfs --bind /etc/hosts --bind /etc/grid-security --home /storage/local/data1/condor/execute/dir_1499233:/srv --pwd /srv /cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7 ./run_condor.csh plotBoostedTauTau.py ./filelists/DYJetsToLL_M-4to50/UL16pre/DYJetsToLL_M-4to50_HT-70to100_preVFPUL16/DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_0.txt root://cmseos.fnal.gov//store/user/dalam/UL2016pre/ MC 16pre
-Starting job on  Tue Jul 9 22:28:18 UTC 2024
-Running on: Linux dalam-3550511-0-cmswn2130.fnal.gov 5.14.0-427.20.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jun 10 08:04:28 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+[FERMIHTC-APPTAINER]: INFO -- Running /cvmfs/oasis.opensciencegrid.org/mis/apptainer/current/bin/apptainer exec --pid --ipc --contain --bind /cvmfs --bind /etc/hosts --bind /etc/grid-security --home /storage/local/data1/condor/execute/dir_3727249:/srv --pwd /srv /cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7 ./run_condor.csh plotBoostedTauTau.py ./filelists/DYJetsToLL_M-4to50/UL16pre/DYJetsToLL_M-4to50_HT-70to100_preVFPUL16/DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_0.txt root://cmseos.fnal.gov//store/user/dalam/UL2016pre/ MC 16pre
+Starting job on  Mon Jul 15 16:29:09 UTC 2024
+Running on: Linux dalam-65568486-0-cmswn2124.fnal.gov 5.14.0-427.20.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jun 10 08:04:28 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux
 System software: CentOS Linux release 7.9.2009 (Core)
 Done: ProjectRename
 Arguments passed to this script are: 
@@ -11,7 +11,7 @@ Arguments passed to this script are:
   output dir: root://cmseos.fnal.gov//store/user/dalam/UL2016pre/
   mode: MC
   year: 16pre
-{'lowMET_BFlavour': <cppyy.gbl.TH2F object at 0x6094d30>, 'highMET_BFlavour': <cppyy.gbl.TH2F object at 0x8fd6f60>, 'lowMET_CFlavour': <cppyy.gbl.TH2F object at 0x8fd65a0>, 'highMET_CFlavour': <cppyy.gbl.TH2F object at 0x8fd6120>, 'lowMET_LFlavour': <cppyy.gbl.TH2F object at 0x8fd6a60>, 'highMET_LFlavour': <cppyy.gbl.TH2F object at 0x8fe7eb0>}
+{'lowMET_BFlavour': <cppyy.gbl.TH2F object at 0x6414b70>, 'highMET_BFlavour': <cppyy.gbl.TH2F object at 0x9356d80>, 'lowMET_CFlavour': <cppyy.gbl.TH2F object at 0x93563c0>, 'highMET_CFlavour': <cppyy.gbl.TH2F object at 0x9355f40>, 'lowMET_LFlavour': <cppyy.gbl.TH2F object at 0x9356880>, 'highMET_LFlavour': <cppyy.gbl.TH2F object at 0x9367cd0>}
 root://cmseos.fnal.gov//store/user/dalam/UL2016pre/h_plotBoostedTauTau_16pre_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_0.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_7.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_63.root
@@ -3036,6 +3036,54 @@ SVFit Mass: 16.6201
 mode: 2
 tau_mu tau_h
 Kappa: 4
+SVFit Mass: 19.0721
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.451
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.7497
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.35539
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 19.5334
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.14587
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.2748
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.6006
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.57555
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 23.9491
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.77342
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.9411
+mode: 2
+tau_mu tau_h
+Kappa: 4
 SVFit Mass: 5.53006
 mode: 2
 tau_mu tau_h
@@ -3105,6 +3153,130 @@ mode: 2
 tau_mu tau_h
 Kappa: 4
 SVFit Mass: 7.26266
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.3392
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.1422
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.53616
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 21.7604
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.03652
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.91678
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.5177
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.0784
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.17939
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.10561
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.18644
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.96328
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.9515
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.46027
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.99644
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.4533
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.36413
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.5548
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.8083
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.38875
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.26136
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 17.1722
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.0344
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.8118
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.53435
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.8281
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.46644
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.0041
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.5501
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.09194
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 19.4524
 mode: 2
 tau_mu tau_h
 Kappa: 4
@@ -3281,6 +3453,430 @@ mode: 2
 tau_mu tau_h
 Kappa: 4
 SVFit Mass: 6.80976
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.6414
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.90385
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 17.727
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.82575
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.99851
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.166
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.89106
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.08202
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.1775
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.33306
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.761
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 21.0706
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.3268
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.5966
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.6214
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.30153
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 19.731
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.4296
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.5062
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.5208
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.88718
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.3962
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.36309
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.31437
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.3933
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.1486
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.1984
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.6896
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.30459
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.7654
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.57212
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.2125
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.1939
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.6797
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.3226
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.74817
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.0368
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.5183
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.39742
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.6365
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 17.9798
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.1431
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.0414
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.39845
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.2645
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.8073
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.267
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.6547
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.1895
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.4504
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 21.1441
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 17.7319
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.2225
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.621
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.1529
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.6001
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.1601
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.00925
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.7674
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.3796
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.95632
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.2508
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 19.0887
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.84724
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.3706
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.1509
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.59578
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.10745
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.62762
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.7426
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.6659
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.8016
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 21.0039
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.3917
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.8103
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 15.726
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 6.66611
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.6432
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.9798
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.618
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.3085
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 19.6718
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.8888
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.1316
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.69791
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.87328
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 7.04734
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.3484
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.0106
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 17.034
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 14.2128
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.98028
+mode: 1
+tau_e tau_mu
+Kappa: 3
+SVFit Mass: 9.70224
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.3888
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 18.3222
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.7808
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 10.4466
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 8.15782
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 11.895
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 9.67542
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.23206
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 5.91869
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 13.9511
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 12.2976
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 16.6156
+mode: 2
+tau_mu tau_h
+Kappa: 4
+SVFit Mass: 20.5733
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_5.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_53.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_87.root
@@ -3299,3 +3895,4 @@ root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_48.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_16.root
 root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/DYJetsToLL_M-4to50_HT-70to100_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-70to100_preVFPUL16_miniAODv2_v5/240514_010448/0000/TCPNtuple_Backgrounds_31.root
+--- 21218.387660741806 seconds ---
