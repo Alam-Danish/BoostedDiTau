@@ -24,6 +24,7 @@ year = args.year
 
 idjson = correctionlib.CorrectionSet.from_file("Efficiencies_ID_TRK_UL"+year+"_schemaV2.json")
 trigjson = correctionlib.CorrectionSet.from_file("Efficiencies_muon_generalTracks_Z_Run"+year+"_UL_SingleMuonTriggers_schemaV2.json")
+
 EGsffile = ROOT.TFile("egammaEffi_EGM2D_UL"+year+".root")
 
 EGsfhist = EGsffile.Get("EGamma_SF2D")
@@ -290,10 +291,13 @@ def plot_variable(region, l1, l2, j, m, sf=1):
 
 
 def hist_for_sf(baselineSel):
-    for i in range(1,5):
+    for i in range(1,6):
         h['ETau_'+baselineSel+'_Eta_ept'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_Eta_ept'+str(i), 'ETau_'+baselineSel+'_Eta_ept'+str(i)+' ; Eta ; N', 100, -2.5, 2.5)
         h['ETau_'+baselineSel+'_Eta_pass_ept'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_Eta_pass_ept'+str(i), 'ETau_'+baselineSel+'_Eta_pass_ept'+str(i)+' ; Eta ; N', 100, -2.5, 2.5)
 
+        h['ETau_'+baselineSel+'_EPt_eta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_eta'+str(i), 'ETau_'+baselineSel+'_EPt_eta'+str(i)+' ; Electron Pt (GeV) ; Efficiency', 500, 0, 500)
+        h['ETau_'+baselineSel+'_EPt_pass_eta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_pass_eta'+str(i), 'ETau_'+baselineSel+'_EPt_pass_eta'+str(i)+' ; Electron Pt ; Efficiency', 500, 0, 500)
+        
         h['ETau_'+baselineSel+'_Jet_ept'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_Jet_ept'+str(i), 'ETau_'+baselineSel+'_Jet_ept'+str(i)+' ; LeadingJet P_{T} (GeV) ; N', 2000, 0, 2000)
         h['ETau_'+baselineSel+'_Jet_pass_ept'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_Jet_pass_ept'+str(i), 'ETau_'+baselineSel+'_Jet_pass_ept'+str(i)+' ; Leading P_{T} (GeV) ; N', 2000, 0, 2000)
 
@@ -452,7 +456,7 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
             if trigObject.DeltaR(jet) < 0.1 : 
                 isMatchedJet = True
 
-    if isMatchedE == True and isMatchedJet == True : 
+    if ( isMatchedE == True and isMatchedJet == True ) or isMatchedPhoton == True: 
         isMatchedEleJet = True
 
     isMatchedMu = False
@@ -469,8 +473,9 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
         if trigObject.DeltaR(mu) < 0.1 :
             isMatchedIsoMu = True
 
+    muTrigThresh = 26.0        
+            
     if year == '2018' : 
-        muTrigThresh = 26.0
         if ( jet.Phi() > -1.57 and jet.Phi() < -0.87 and jet.Eta() > -3.0 and jet.Eta() < -1.3 ) : return
         if ( e.Phi() > -1.57 and e.Phi() < -0.87 and e.Eta() > -3.0 and e.Eta() < -1.3 ) : return
 
@@ -501,13 +506,16 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
                     ele_id_sf = get_EGsf(e.Eta(), e.Pt())
                 if abs(mu.Eta()) <= 2.4:
                     muon_id_sf = idjson["NUM_MediumID_DEN_TrackerMuons"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                    if mu.Pt() >= 40.0 : 
-                        muon_track_sf = idjson["NUM_TrackerMuons_DEN_genTracks"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    if mu.Pt() >= 40.0 :
+                        if year == "2017" or year == "2018":
+                            muon_track_sf = idjson["NUM_TrackerMuons_DEN_genTracks"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
                     if mu.Pt() <= 200.0 :
-                        if year == "2018":
-                            muon_trig_sf = trigjson["NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                        if year == "2017":
+                        if year == "2016preVFP" or year == "2016postVFP":
+                            muon_trig_sf = trigjson["NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                        elif year == "2017":
                             muon_trig_sf = trigjson["NUM_IsoMu27_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                        elif year == "2018":
+                            muon_trig_sf = trigjson["NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
 
             muon_sf = muon_id_sf*muon_track_sf*muon_trig_sf
             ele_sf = ele_id_sf
@@ -534,7 +542,32 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
 
                             # measure_btag_eff('ETau_'+baselineSel+'_jetPtcut_ePtcut_dRj_highMET_isEleJet', theJet, sfTot)
                             
+                        if abs(e.Eta()) >= abseta[0] and abs(e.Eta()) < abseta[1] :
+                            h['ETau_'+baselineSel+'_EPt_eta1'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1 :
+                                h['ETau_'+baselineSel+'_EPt_pass_eta1'].Fill(e.Pt(), weight*sfTot)
+                            
+                        if abs(e.Eta()) >= abseta[1] and abs(e.Eta()) < abseta[2] :
+                            h['ETau_'+baselineSel+'_EPt_eta2'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1 :
+                                h['ETau_'+baselineSel+'_EPt_pass_eta2'].Fill(e.Pt(), weight*sfTot)
 
+                        if abs(e.Eta()) >= abseta[2] and abs(e.Eta()) < abseta[3] :
+                            h['ETau_'+baselineSel+'_EPt_eta3'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1 :
+                                h['ETau_'+baselineSel+'_EPt_pass_eta3'].Fill(e.Pt(), weight*sfTot)
+
+                        if abs(e.Eta()) >= abseta[3] and abs(e.Eta()) < abseta[4] :
+                            h['ETau_'+baselineSel+'_EPt_eta4'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1 :
+                                h['ETau_'+baselineSel+'_EPt_pass_eta4'].Fill(e.Pt(), weight*sfTot)
+
+                        if abs(e.Eta()) >= abseta[4] and abs(e.Eta()) <= abseta[5] :
+                            h['ETau_'+baselineSel+'_EPt_eta5'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1 :
+                                h['ETau_'+baselineSel+'_EPt_pass_eta5'].Fill(e.Pt(), weight*sfTot)
+
+                                
                         if e.Pt() >= Ept[0] and e.Pt() < Ept[1] :
                             h['ETau_'+baselineSel+'_Eta_ept1'].Fill(e.Eta(), weight*sfTot)
                             h['ETau_'+baselineSel+'_Jet_ept1'].Fill(jet.Pt(), weight*sfTot)
@@ -605,6 +638,7 @@ for key in h.keys():
 Ept = [60.0, 100.0, 150.0, 300.0, 500.0]
 Jetpt = [200.0,400.0,600.0,1000.0,2000.0]
 Eta = [-3.0, -2.5, -2.0, -1.566, -1.444, -0.8, 0.0, 0.8, 1.444, 1.566, 2.0, 2.5, 3.0]
+abseta = [0, 0.8, 1.444, 1.566, 2.0, 2.5]
 
 #-------- File loop --------#
 
