@@ -1,0 +1,12 @@
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_455.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_148.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_648.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_275.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_956.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_510.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_31.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_158.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_849.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_307.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_678.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTTo2L2Nu_postVFPUL16_miniAODv2_v5/240812_211301/0000/TCPNtuple_Backgrounds_853.root

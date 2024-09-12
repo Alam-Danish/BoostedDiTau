@@ -1,0 +1,1023 @@
+{
+    "schema_version": 2,
+    "description": "This json file contains different scale factors centrally derived by the Muon POG. Corrections are supplied for various reconstructions, working points, IDs, isolation cuts, and resonances (Z or JPsi). In general, the scale factors are factorized into ID*ISO*HLT, and the names follow the next convention: NUM_{NumeratorNAME}_DEN_{DenominatorNAME} where 'NumeratorNAME' can be 'TightID' and denominator can be 'TrackerMuons', for example. Nominal scale factors and uncertainties are provided. 'nominal', 'stat', 'syst', 'systup', and 'systdown' are provided for all the cases. Additional systematic uncertainties may be included such as 'massBin', 'AltSig', etc. Please note the different meanings of the input labels.    \n 'nominal'  : Nominal central scale factor value    \n 'systup'   : Combined statistical+systematic up boundary (Consistent with XPOG format)    \n 'systdown' : Combined statistical+systematic down boundary (Consistent with XPOG format)    \n 'stat'     : Statistical uncertainty    \n 'syst'     : Systematic uncertainty    \n",
+    "corrections": [
+        {
+            "name": "NUM_Mu50_DEN_LooseID",
+            "description": "NUM_Mu50_DEN_LooseID",
+            "version": 1,
+            "inputs": [
+                {
+                    "name": "abseta",
+                    "type": "real",
+                    "description": "Probe abseta"
+                },
+                {
+                    "name": "pt",
+                    "type": "real",
+                    "description": "Probe pt"
+                },
+                {
+                    "name": "scale_factors",
+                    "type": "string",
+                    "description": "Choose nominal scale factor or one of the uncertainties"
+                }
+            ],
+            "output": {
+                "name": "weight",
+                "type": "real",
+                "description": "Output scale factor (nominal) or uncertainty"
+            },
+            "data": {
+                "nodetype": "binning",
+                "input": "abseta",
+                "edges": [
+                    0.0,
+                    0.9,
+                    1.2,
+                    2.1,
+                    2.4
+                ],
+                "content": [
+                    {
+                        "nodetype": "binning",
+                        "input": "pt",
+                        "edges": [
+                            50.0,
+                            55.0,
+                            60.0,
+                            80.0,
+                            120.0,
+                            200.0,
+                            Infinity
+                        ],
+                        "content": [
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 9.514707110169773e-05
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 5.874307827180569e-05
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.00044721032316441534
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0011287334697915499
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9669479997175358
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9680767331873273
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9658192662477442
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.000554172607091008
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.00013358490516529598
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.00024637290571472015
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0011681474584028803
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9716123302543694
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9727804777127723
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9704441827959666
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0003394842502145723
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.000176736339503214
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0006838602490695234
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0010227429109340026
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9693835633484248
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9704063062593588
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9683608204374908
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.006032316986905539
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.00018293338352137756
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0027106087420454283
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.00207086149006966
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.00661333864118285
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9705311685825107
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9774611552559478
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9636011819090735
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0017262312684638292
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0002671985982220515
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0012909171508894146
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.004998092448174943
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9658344415118675
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9708325339600424
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9608363490636925
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0014126091791252238
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0003247688159189188
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.002840604729658247
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.01187142157957647
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.944575547783285
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9564469693628614
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9327041262037086
+                                    }
+                                ]
+                            }
+                        ],
+                        "flow": "error"
+                    },
+                    {
+                        "nodetype": "binning",
+                        "input": "pt",
+                        "edges": [
+                            50.0,
+                            55.0,
+                            60.0,
+                            80.0,
+                            120.0,
+                            200.0,
+                            Infinity
+                        ],
+                        "content": [
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.002673386135925604
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0004163843840783721
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0021606049971495955
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0021470770347805125
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.003437325615281019
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.947555968698679
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9516087636822365
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9435031737151215
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0030320193667071615
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 8.424094979186947e-05
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0020291852226504425
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0020668034019226916
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0030320193667071615
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.948586437990307
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9522558817822578
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9449169941983561
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0014877483142865522
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 8.529810320667686e-05
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.00023101771391365045
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0018053836017589827
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9496741885347136
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9514795721364726
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9478688049329547
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0007745435400101641
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.00021935646337761794
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0031448211845933605
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.004134035226379404
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9544335667405853
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9585676019669648
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9502995315142059
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.007002635168346427
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.002686036038000883
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.005146598634504396
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.00911185789298567
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9402089166691093
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.949320774562095
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9310970587761237
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0004312413709216534
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0002111225860014776
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.012207992554318259
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.02501415842808648
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9381075061483611
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9631216645764477
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9130933477202746
+                                    }
+                                ]
+                            }
+                        ],
+                        "flow": "error"
+                    },
+                    {
+                        "nodetype": "binning",
+                        "input": "pt",
+                        "edges": [
+                            50.0,
+                            55.0,
+                            60.0,
+                            80.0,
+                            120.0,
+                            200.0,
+                            Infinity
+                        ],
+                        "content": [
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.002176750981788822
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 6.95823480729163e-05
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.002517015136757561
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.002015711992899182
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.003327703417581754
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.982397085574214
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9862876774152715
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9785064937331566
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.003003878440538621
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0008023096173686572
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0011759043739398845
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0020038595805976713
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.003003878440538621
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9847026239188489
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9883135433176012
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9810917045200965
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0008644896289782267
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.00014773362120629185
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.00014451803031062527
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0018063063564662193
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9844212215052808
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9862275278617469
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9826149151488146
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.001269038989755833
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 8.250945542492838e-05
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0038288391873021466
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0035797806841461745
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0038288391873021466
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9673242620690156
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9725659067792956
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9620826173587356
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0159029127364948
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0010277197430996199
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.007721190862273353
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.00782654673120086
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0159029127364948
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9557000880128689
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9734245757978583
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9379756002278794
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.001599739409309131
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.005481225621292052
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.002627826156486879
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.023024079286626378
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9838827673373507
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 1.006906846623977
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9608586880507243
+                                    }
+                                ]
+                            }
+                        ],
+                        "flow": "error"
+                    },
+                    {
+                        "nodetype": "binning",
+                        "input": "pt",
+                        "edges": [
+                            50.0,
+                            55.0,
+                            60.0,
+                            80.0,
+                            120.0,
+                            200.0,
+                            Infinity
+                        ],
+                        "content": [
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0020185595354542674
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0007531404965182009
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.002510564866192
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.005296688233476444
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.8921612676414388
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.8974579558749152
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.8868645794079624
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.0029898859041673775
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.00014084039716899532
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.0005892563866978229
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.005985998551971845
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9606137810653684
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9665997796173402
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9546277825133966
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.003065458123809317
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.0002433976282613104
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.001032045066155285
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.004780926189863095
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9342770680010738
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9390579941909369
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9294961418112107
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.021209627952142207
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.02934493654709175
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.028506777863687383
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.0107556795102941
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.04608264318581075
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.9674433567065459
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 1.0147645427094232
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.9201221707036686
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.02348224443057556
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.004309134682660032
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.01871668135243343
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.021727185971538193
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.02348224443057556
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.8997328169033947
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9317247911116098
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.8677408426951796
+                                    }
+                                ]
+                            },
+                            {
+                                "nodetype": "category",
+                                "input": "scale_factors",
+                                "content": [
+                                    {
+                                        "key": "AltSigOld",
+                                        "value": 0.04515797362736518
+                                    },
+                                    {
+                                        "key": "massBin",
+                                        "value": 0.008648280925583174
+                                    },
+                                    {
+                                        "key": "massRange",
+                                        "value": 0.044340203815139645
+                                    },
+                                    {
+                                        "key": "stat",
+                                        "value": 0.07757925495588636
+                                    },
+                                    {
+                                        "key": "syst",
+                                        "value": 0.0
+                                    },
+                                    {
+                                        "key": "nominal",
+                                        "value": 0.8444279930998035
+                                    },
+                                    {
+                                        "key": "systup",
+                                        "value": 0.9220072480556899
+                                    },
+                                    {
+                                        "key": "systdown",
+                                        "value": 0.7668487381439172
+                                    }
+                                ]
+                            }
+                        ],
+                        "flow": "error"
+                    }
+                ],
+                "flow": "error"
+            }
+        }
+    ]
+}

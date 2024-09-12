@@ -1,0 +1,6 @@
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_1.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_6.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_3.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_4.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_5.root
+root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/AToTauTau_ALP_M-55_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_ALP_M-55_HT-100to400_postVFPUL16_miniAODv2_v5/240812_212452/0000/TCPNtuple_Backgrounds_2.root

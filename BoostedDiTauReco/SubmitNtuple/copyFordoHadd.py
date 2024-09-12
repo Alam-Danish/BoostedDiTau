@@ -6,7 +6,7 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="To copy output histograms from eos space in preparation for hadd")
-    parser.add_argument("--era", type=str, help="Era. e.g. 16preVFP, 16postVFP, 2017, 2018")
+    parser.add_argument("--era", type=str, help="Era. e.g. 2016preVFP, 2016postVFP, 2017, 2018")
     parser.add_argument("-v", "--version", type=str, help="version. User defined")
     parser.add_argument("--sample", nargs="+", type=str, help="sample. e.g. DYJetsToLL_M-50, TTTo2L2Nu, etc. Able take more than one")
     parser.add_argument("--fname", type=str, help="output name. e.g. plotBoostedTauTau")
@@ -24,7 +24,7 @@ if __name__ == "__main__":
         hist = "h_"+fname+"_"+era+"_"+smpl+"_"
 
 
-        outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2016pre/ | grep "+hist).read().split()
+        outputfiles = os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2016pre_updated/ | grep "+hist).read().split()
 
         print(outputfiles)
         print(len(outputfiles))
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
         for fil in outputfiles:
             print(fil)
-            os.system("xrdcp root://cmseos.fnal.gov//store/user/dalam/UL2016pre/"+fil+" "+plotDir+"/"+fil)
+            os.system("xrdcp root://cmseos.fnal.gov//store/user/dalam/UL2016pre_updated/"+fil+" "+plotDir+"/"+fil)
 
         searchString = hist+"*"        
 

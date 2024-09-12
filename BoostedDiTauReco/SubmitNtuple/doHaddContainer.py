@@ -14,8 +14,8 @@ if __name__ == "__main__":
 
     version = args.version
     fname = args.fname
-    plotDir = "output/first"
-    outDir = "output/merged"
+    plotDir = "output/sept12"
+    outDir = "output/sept12/merged"
     for s in args.sample:
 
         smpl = s

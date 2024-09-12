@@ -27,9 +27,17 @@ outputTitle = "h_plotBoostedTauTau_"+year
 EGsffile = ROOT.TFile("egammaEffi_EGM2D_UL"+year+".root")
 EGsfhist = EGsffile.Get("EGamma_SF2D")
 mu50SF = correctionlib.CorrectionSet.from_file("Efficiencies_NUM_Mu50_DEN_LooseID_abseta_pt_UL"+year+"_schemaV2.json")
-etauTrigSF = ROOT.TFile("Baseline1_MmuMiso_EleEta_ElePt_SF_"+year+".root")
-etauTrigHist = etauTrigSF.Get("SF")
-etauTrigUncert = etauTrigSF.Get("Uncert")
+try:
+    etauTrigSF = ROOT.TFile("Baseline1_MmuMiso_EleEta_ElePt_SF_"+year+".root")
+    etauTrigHist = etauTrigSF.Get("SF")
+    etauTrigUncert = etauTrigSF.Get("Uncert")
+except FileNotFoundError:
+    etauTrigSF = None
+    etauTrigHist = None
+    etauTrigUncert = None
+#etauTrigSF = ROOT.TFile("Baseline1_MmuMiso_EleEta_ElePt_SF_"+year+".root")
+#etauTrigHist = etauTrigSF.Get("SF")
+#etauTrigUncert = etauTrigSF.Get("Uncert")
 
 isData = 0
 
@@ -938,6 +946,11 @@ def etau_channel(s_tauEclean, tauid="Nominal"):
                                     h['ETau_Nbjet_M'].Fill(len(s_bjet_med), weight)
                                     h['ETau_Nbjet_L'].Fill(len(s_bjet_loose), weight)
 
+                                    
+                                if year == "2016preVFP" or year == "2016postVFP":
+                                    esf, esf_up, esf_down = 1, 1, 1
+                                    trigsf, trigsf_up, trigsf_down = 1, 1, 1
+                                else:
                                     esf, esf_up, esf_down = get_EGsf(e.Eta(), e.Pt())
                                     trigsf, trigsf_up, trigsf_down = get_etauTrigsf(e.Eta(), e.Pt())
 

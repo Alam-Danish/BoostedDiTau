@@ -12,7 +12,7 @@ setenv MSAMPLENAME $4
 foreach part (`gfal-ls root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/${SAMPLE}`)
     setenv PART $part
     echo $PART
-    if ($PART =~ *preVFPUL16* && $PART =~ *v5) then
+    if ($PART =~ *postVFPUL16* && $PART =~ *v5) then
 	echo $PART
 	@ i = 0
 	setenv DATE `gfal-ls root://cmsio2.rc.ufl.edu:1094//store/user/zhangj/TCPNtuple/${SAMPLE}/$PART`

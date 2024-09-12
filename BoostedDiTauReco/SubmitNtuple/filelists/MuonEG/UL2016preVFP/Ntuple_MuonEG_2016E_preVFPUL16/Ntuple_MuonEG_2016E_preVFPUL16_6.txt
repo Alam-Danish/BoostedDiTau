@@ -1,0 +1,13 @@
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_191.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_502.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_354.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_465.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_434.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_255.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_343.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_82.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_13.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_133.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_489.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_488.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016E_preVFPUL16_MiniAODv2-v1_v5/240112_225813/0000/TCPNtuple_Data_101.root

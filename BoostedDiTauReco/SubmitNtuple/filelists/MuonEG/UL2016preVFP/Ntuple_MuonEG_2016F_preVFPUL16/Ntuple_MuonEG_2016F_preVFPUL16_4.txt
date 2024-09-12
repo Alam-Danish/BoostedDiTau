@@ -1,0 +1,16 @@
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_88.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_320.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_3-41.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_21.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_164.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_147.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_201.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_307.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_191.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_354.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_255.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_343.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_82.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_13.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_133.root
+root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2016F_preVFPUL16_MiniAODv2-v1_v5/240112_225851/0000/TCPNtuple_Data_101.root
