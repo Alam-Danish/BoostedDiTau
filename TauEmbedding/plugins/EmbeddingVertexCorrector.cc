@@ -48,6 +48,7 @@
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
+#include "FWCore/Utilities/interface/ESGetToken.h"
 
 namespace HepMC {
    class FourVector ;
@@ -71,6 +72,7 @@ class EmbeddingVertexCorrector : public edm::stream::EDProducer<> {
       // ----------member data ---------------------------
       edm::InputTag sourceLabel;
       edm::InputTag vertexPositionLabel;
+      edm::ESGetToken<BeamSpotObjects, BeamSpotObjectsRcd> beamSpotToken_; //added by Danish
 };
 
 //
@@ -84,6 +86,9 @@ EmbeddingVertexCorrector::EmbeddingVertexCorrector(const edm::ParameterSet& iCon
    consumes<edm::HepMCProduct>(sourceLabel);
    vertexPositionLabel = edm::InputTag("externalLHEProducer","vertexPosition");
    consumes<math::XYZTLorentzVectorD>(vertexPositionLabel);
+
+   beamSpotToken_ = esConsumes<BeamSpotObjects, BeamSpotObjectsRcd, edm::Transition::BeginRun>();  //added line by Danish
+
 }
 
 EmbeddingVertexCorrector::~EmbeddingVertexCorrector()
@@ -101,11 +106,12 @@ EmbeddingVertexCorrector::beginRun(const edm::Run & , const edm::EventSetup& iEv
    // edm::ESHandle< SimBeamSpotObjects > beamhandle;
    // iEventSetup.get<SimBeamSpotObjectsRcd>().get(beamhandle);
     
-    edm::ESHandle< BeamSpotObjects > beamhandle;
-    iEventSetup.get<BeamSpotObjectsRcd>().get(beamhandle);
+    //edm::ESHandle< BeamSpotObjects > beamhandle;
+    //iEventSetup.get<BeamSpotObjectsRcd>().get(beamhandle);
+    auto const& beamspot = iEventSetup.getData(beamSpotToken_); //added by Danish
     
-    
-    edm::LogInfo("TauEmbedding")<<"beam handle\n"<<(*beamhandle);
+    //edm::LogInfo("TauEmbedding")<<"beam handle\n"<<(*beamhandle);
+    edm::LogInfo("TauEmbedding") << "beam handle\n" << beamspot;
 
 
 }
