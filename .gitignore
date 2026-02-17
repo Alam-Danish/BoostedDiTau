@@ -4,5 +4,6 @@
 *.txt#
 *.root
 *.cc~
-*.h~__pycache__/
+*.h~
+__pycache__/
 *.pyc
