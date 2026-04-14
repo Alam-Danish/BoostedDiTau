@@ -2,6 +2,8 @@ from __future__ import print_function
 import FWCore.ParameterSet.Config as cms
 from RecoTauTag.RecoTau.TauDiscriminatorTools import noPrediscriminants
 from RecoTauTag.RecoTau.PATTauDiscriminationByMVAIsolationRun2_cff import patDiscriminationByIsolationMVArun2v1raw, patDiscriminationByIsolationMVArun2v1
+from RecoTauTag.RecoTau.DeepTau_cfi import DeepTau
+from RecoTauTag.RecoTau.tauIdWPsDefs import WORKING_POINTS_v2p5
 import os
 import re
 import six
@@ -10,7 +12,7 @@ class TauIDEmbedder(object):
     """class to rerun the tau seq and acces trainings from the database"""
     availableDiscriminators = [
         "2017v1", "2017v2", "newDM2017v2", "dR0p32017v2", "2016v1", "newDM2016v1",
-        "deepTau2017v1", "deepTau2017v2", "deepTau2017v2p1",
+        "deepTau2017v1", "deepTau2017v2", "deepTau2017v2p1", "deepTau2018v2p5",
         "DPFTau_2016_v0", "DPFTau_2016_v1",
         "againstEle2018",
         "newDMPhase2v1",
@@ -21,7 +23,7 @@ class TauIDEmbedder(object):
                  originalTauName = "slimmedTaus",
                  updatedTauName = "slimmedTausNewID",
                  postfix = "",
-                 toKeep =  ["deepTau2017v2p1"],
+                 toKeep =  ["deepTau2018v2p5"],
                  tauIdDiscrMVA_trainings_run2_2017 = { 'tauIdMVAIsoDBoldDMwLT2017' : "tauIdMVAIsoDBoldDMwLT2017", },
                  tauIdDiscrMVA_WPs_run2_2017 = {
                     'tauIdMVAIsoDBoldDMwLT2017' : {
@@ -728,6 +730,43 @@ class TauIDEmbedder(object):
                 debug_level              = cms.int32(0),
                 disable_dxy_pca          = cms.bool(True),
                 is_online                = cms.bool(False)
+            ))
+
+            self.processDeepProducer(_deepTauName, tauIDSources, workingPoints_)
+
+            _deepTauProducer = getattr(self.process,_deepTauName+self.postfix)
+            _rerunMvaIsolationTaskLowPtElectronCleaned.add(_deepTauProducer)
+            _rerunMvaIsolationSequenceLowPtElectronCleaned += _deepTauProducer
+
+
+        if "deepTau2018v2p5" in self.toKeep:
+            if self.debug: print ("Adding DeepTau IDs")
+
+            _deepTauName = "deepTau2018v2p5"
+            workingPoints_ = WORKING_POINTS_v2p5
+
+            file_names = [
+                'core:RecoTauTag/TrainingFiles/data/DeepTauId/deepTau_2018v2p5_core.pb',
+                'inner:RecoTauTag/TrainingFiles/data/DeepTauId/deepTau_2018v2p5_inner.pb',
+                'outer:RecoTauTag/TrainingFiles/data/DeepTauId/deepTau_2018v2p5_outer.pb',
+            ]
+            
+            full_version = self.getDeepTauVersion(file_names[0])
+            setattr(self.process, _deepTauName+self.postfix, DeepTau.clone(
+                Prediscriminants                = noPrediscriminants,
+                taus                            = self.originalTauName,
+                electrons                       = cms.InputTag('slimmedElectrons'),
+                muons                           = cms.InputTag('slimmedMuons'),
+                pfcands                         = cms.InputTag('packedPFCandidates'),
+                vertices                        = cms.InputTag('offlineSlimmedPrimaryVertices'),
+                rho                             = cms.InputTag('fixedGridRhoAll'),
+                graph_file                      = file_names,
+                year                            = full_version[0],
+                version                         = full_version[1],
+                sub_version                     = full_version[2],
+                disable_dxy_pca                 = True,
+                disable_hcalFraction_workaround = True,
+                disable_CellIndex_workaround    = True
             ))
 
             self.processDeepProducer(_deepTauName, tauIDSources, workingPoints_)
