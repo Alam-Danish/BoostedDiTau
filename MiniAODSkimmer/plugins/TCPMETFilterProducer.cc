@@ -55,21 +55,25 @@ private:
 
   bool beamHaloFilter_;
   bool primaryVertexFilter_;
-  bool hbheFilter_;
-  bool hbheIsoFilter_;
+  //bool hbheFilter_;
+  //bool hbheIsoFilter_;
   bool ecalTPFilter_;
   bool badPFMuonFilter_;
-  bool badChargedCandFilter_;
+  bool badPFMuonDzFilter_;
+  bool hfNoisyHitsFilter_;
+  //bool badChargedCandFilter_;
   bool eeBadScFilter_;
   bool ecalBadCalFilter_;
 
   std::string beamHaloFilterSt_;
   std::string primaryVertexFilterSt_;
-  std::string hbheFilterSt_;
-  std::string hbheIsoFilterSt_;
+  //std::string hbheFilterSt_;
+  //std::string hbheIsoFilterSt_;
   std::string ecalTPFilterSt_;
   std::string badPFMuonFilterSt_;
-  std::string badChargedCandFilterSt_;
+  std::string badPFMuonDzFilterSt_;
+  std::string hfNoisyHitsFilterSt_;
+  //std::string badChargedCandFilterSt_;
   std::string eeBadScFilterSt_;
   std::string ecalBadCalFilterSt_;
 
@@ -85,11 +89,13 @@ TCPMETFilter::TCPMETFilter(const edm::ParameterSet& iConfig):
   usesResource(TFileService::kSharedResource);
   beamHaloFilterSt_       = iConfig.getParameter<std::string>("beamHaloFilterSel");
   primaryVertexFilterSt_  = iConfig.getParameter<std::string>("primaryVertexFilterSel");
-  hbheFilterSt_           = iConfig.getParameter<std::string>("hbheFilterSel");
-  hbheIsoFilterSt_        = iConfig.getParameter<std::string>("hbheIsoFilterSel");
+  //hbheFilterSt_           = iConfig.getParameter<std::string>("hbheFilterSel");
+  //hbheIsoFilterSt_        = iConfig.getParameter<std::string>("hbheIsoFilterSel");
   ecalTPFilterSt_         = iConfig.getParameter<std::string>("ecalTPFilterSel");
   badPFMuonFilterSt_      = iConfig.getParameter<std::string>("badPFMuonFilterSel");
-  badChargedCandFilterSt_ = iConfig.getParameter<std::string>("badChargedCandFilterSel");
+  badPFMuonDzFilterSt_    = iConfig.getParameter<std::string>("badPFMuonDzFilterSel");
+  hfNoisyHitsFilterSt_    = iConfig.getParameter<std::string>("HFnoisyhitsFilterSel");
+  //badChargedCandFilterSt_ = iConfig.getParameter<std::string>("badChargedCandFilterSel");
   eeBadScFilterSt_        = iConfig.getParameter<std::string>("eeBadScFilterSel");
   ecalBadCalFilterSt_     = iConfig.getParameter<std::string>("ecalBadCalFilterSel");
 }
@@ -110,11 +116,13 @@ void TCPMETFilter::beginJob(){
 
   tree->Branch("primaryvertexfilter", &primaryVertexFilter_, "primaryvertexfilter/O");
   tree->Branch("beamhalofilter", &beamHaloFilter_, "beamhalofilter/O");
-  tree->Branch("hbhefilter", &hbheFilter_, "hbhefilter/O");
-  tree->Branch("hbheisofilter", &hbheIsoFilter_, "hbheisofilter/O");
+  //tree->Branch("hbhefilter", &hbheFilter_, "hbhefilter/O");
+  //tree->Branch("hbheisofilter", &hbheIsoFilter_, "hbheisofilter/O");
   tree->Branch("ecaltpfilter", &ecalTPFilter_, "ecaltpfilter/O");
   tree->Branch("badpfmuonfilter", &badPFMuonFilter_, "badpfmuonfilter/O");
-  tree->Branch("badchangedcandfilter", &badChargedCandFilter_,"badchangedcandfilter/O");
+  tree->Branch("badpfmuonDzfilter", &badPFMuonDzFilter_, "badpfmuonDzfilter/O");
+  tree->Branch("hfnoisyhitsfilter", &hfNoisyHitsFilter_, "hfnoisyhitsfilter/O");
+  //tree->Branch("badchangedcandfilter", &badChargedCandFilter_,"badchangedcandfilter/O");
   tree->Branch("eebadscfilter", &eeBadScFilter_, "eebadscfilter/O");
   tree->Branch("ecalbadcalfilter", &ecalBadCalFilter_, "ecalbadcalfilter/O");
 
@@ -134,11 +142,13 @@ void TCPMETFilter::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
   
   beamHaloFilter_ = 0;
   primaryVertexFilter_ = 0;
-  hbheFilter_ = 0;
-  hbheIsoFilter_ = 0;
+  //hbheFilter_ = 0;
+  //hbheIsoFilter_ = 0;
   ecalTPFilter_ = 0;
   badPFMuonFilter_ = 0;
-  badChargedCandFilter_ = 0;
+  badPFMuonDzFilter_ = 0;
+  hfNoisyHitsFilter_ = 0;
+  //badChargedCandFilter_ = 0;
   eeBadScFilter_ = 0;
   ecalBadCalFilter_ = 0;
 
@@ -148,11 +158,13 @@ void TCPMETFilter::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
     if ( names.triggerName(i) == beamHaloFilterSt_ && metFilters->accept(i) == 1 ) beamHaloFilter_ = 1;
     if ( names.triggerName(i) == primaryVertexFilterSt_ && metFilters->accept(i) == 1 ) primaryVertexFilter_ = 1;
-    if ( names.triggerName(i) == hbheFilterSt_ && metFilters->accept(i) == 1 ) hbheFilter_ = 1;
-    if ( names.triggerName(i) == hbheIsoFilterSt_ && metFilters->accept(i) == 1 ) hbheIsoFilter_= 1;
+    //if ( names.triggerName(i) == hbheFilterSt_ && metFilters->accept(i) == 1 ) hbheFilter_ = 1;
+    //if ( names.triggerName(i) == hbheIsoFilterSt_ && metFilters->accept(i) == 1 ) hbheIsoFilter_= 1;
     if ( names.triggerName(i) == ecalTPFilterSt_ && metFilters->accept(i) == 1 ) ecalTPFilter_ = 1;
     if ( names.triggerName(i) == badPFMuonFilterSt_ && metFilters->accept(i) == 1 ) badPFMuonFilter_ = 1;
-    if ( names.triggerName(i) == badChargedCandFilterSt_ && metFilters->accept(i) == 1 ) badChargedCandFilter_ = 1;
+    if ( names.triggerName(i) == badPFMuonDzFilterSt_ && metFilters->accept(i) == 1 ) badPFMuonDzFilter_ = 1;
+    if ( names.triggerName(i) == hfNoisyHitsFilterSt_ && metFilters->accept(i) == 1 ) hfNoisyHitsFilter_ = 1;
+    //if ( names.triggerName(i) == badChargedCandFilterSt_ && metFilters->accept(i) == 1 ) badChargedCandFilter_ = 1;
     if ( names.triggerName(i) == eeBadScFilterSt_ && metFilters->accept(i) == 1 ) eeBadScFilter_ = 1;
     if ( names.triggerName(i) == ecalBadCalFilterSt_ && metFilters->accept(i) == 1 ) ecalBadCalFilter_ = 1;
 
