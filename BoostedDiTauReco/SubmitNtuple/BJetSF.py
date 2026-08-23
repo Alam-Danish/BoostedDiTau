@@ -1,7 +1,7 @@
 import ROOT, sys, os
 import correctionlib
 
-sfDir = os.path.join('/cvmfs','cms.cern.ch','rsync','cms-nanoAOD','jsonpog-integration','POG','BTV','2017_UL')
+sfDir = os.path.join('/cvmfs','cms.cern.ch','rsync','cms-nanoAOD','jsonpog-integration','POG','BTV','2022_Summer22')
 btvjson = correctionlib.CorrectionSet.from_file(os.path.join(sfDir, 'btagging.json.gz'))
 
 WP = 'T'
@@ -17,7 +17,7 @@ h['highMET_CFlavour'] = effMapFile.Get("TT_EMu_OS_dRcut_highMET_CFlavour_BTagged
 h['lowMET_LFlavour'] = effMapFile.Get("TT_EMu_OS_dRcut_lowMET_LFlavour_BTagged_Eff")
 h['highMET_LFlavour'] = effMapFile.Get("TT_EMu_OS_dRcut_highMET_LFlavour_BTagged_Eff")
 
-print(h)
+#print(h)
 
 
 def find_sf(js):

@@ -6,13 +6,12 @@ echo "System software: `cat /etc/redhat-release`" #Operating System on that node
 
 source /cvmfs/cms.cern.ch/cmsset_default.csh  ## if a bash script, use .sh instead of .csh
 
-xrdcp root://cmseos.fnal.gov//store/user/zhangj/CMSSW_12X.tgz CMSSW_12X.tgz
+xrdcp root://cmseos.fnal.gov//store/user/dalam/DIS/TCPAnalysis/CMSSW_13X.tgz CMSSW_13X.tgz
+tar -xf CMSSW_13X.tgz
+rm CMSSW_13X.tgz
 
-tar -xf CMSSW_12X.tgz
-rm CMSSW_12X.tgz
-
-setenv SCRAM_ARCH slc7_amd64_gcc900
-cd CMSSW_12_1_1/src
+setenv SCRAM_ARCH el8_amd64_gcc11
+cd CMSSW_13_0_13/src
 scramv1 b ProjectRename
 eval `scramv1 runtime -csh`
 
@@ -28,4 +27,4 @@ echo "  year: $5"
 python3 ${1} -i ${2} --folder ${3} -s ${4} --year ${5}
 
 cd ${_CONDOR_SCRATCH_DIR}
-rm -rf CMSSW_12_1_1
+rm -rf CMSSW_13_0_13

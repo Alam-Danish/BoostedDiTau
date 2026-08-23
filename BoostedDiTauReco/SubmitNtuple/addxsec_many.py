@@ -108,18 +108,18 @@ TCP_xsec_unscaled = {
 
 
 norm = {
-    '10': 2.890e-06+5.616e-08,
-    '15': 4.301e-06+8.291e-08,
-    '20': 5.867e-06+1.179e-07,
-    '25': 6.925e-06+1.351e-07,
-    '30': 8.060e-06+1.628e-07,
-    '35': 9.147e-06+1.971e-07,
-    '40': 1.004e-05+2.301e-07,
-    '45': 1.097e-05+2.358e-07,
-    '50': 1.176e-05+2.691e-07,
-    '55': 1.220e-05+2.746e-07,
-    '60': 1.272e-05+3.032e-07,
-    '65': 1.343e-05+3.453e-07
+    '10': 3.163e-06 + 3.160e-06,
+    '15': 4.712e-06 + 4.721e-06,
+    '20': 6.164e-06 + 6.175e-06,
+    '25': 7.530e-06 + 7.532e-06,
+    '30': 8.808e-06 + 8.815e-06,
+    '35': 9.970e-06 + 9.966e-06,
+    '40': 1.104e-05 + 1.102e-05,
+    '45': 1.203e-05 + 1.200e-05,
+    '50': 1.290e-05 + 1.290e-05,
+    '55': 1.370e-05 + 1.369e-05,
+    '60': 1.439e-05 + 1.438e-05,
+    '65': 1.501e-05 + 1.498e-05,
 }
 
 for model in Br.keys():
@@ -135,97 +135,175 @@ else : model = "M1"
 #----------------------------------
 
 xsecs={
-     'ALP_Ntuple_m_10_htj_100to400_UL'+era:{'':xsec_M[model]['10'] * 2.890e-06},
-     'ALP_Ntuple_m_10_htj_400toInf_UL'+era:{'':xsec_M[model]['10'] * 5.616e-08},
-     'ALP_Ntuple_m_15_htj_100to400_UL'+era:{'':xsec_M[model]['15'] * 4.301e-06},
-     'ALP_Ntuple_m_15_htj_400toInf_UL'+era:{'':xsec_M[model]['15'] * 8.291e-08},
-     'ALP_Ntuple_m_20_htj_100to400_UL'+era:{'':xsec_M[model]['20'] * 5.867e-06},
-     'ALP_Ntuple_m_20_htj_400toInf_UL'+era:{'':xsec_M[model]['20'] * 1.179e-07},
-     'ALP_Ntuple_m_25_htj_100to400_UL'+era:{'':xsec_M[model]['25'] * 6.925e-06},
-     'ALP_Ntuple_m_25_htj_400toInf_UL'+era:{'':xsec_M[model]['25'] * 1.351e-07},
-     'ALP_Ntuple_m_30_htj_100to400_UL'+era:{'':xsec_M[model]['30'] * 8.060e-06},
-     'ALP_Ntuple_m_30_htj_400toInf_UL'+era:{'':xsec_M[model]['30'] * 1.628e-07},
-     'ALP_Ntuple_m_35_htj_100to400_UL'+era:{'':xsec_M[model]['35'] * 9.147e-06},
-     'ALP_Ntuple_m_35_htj_400toInf_UL'+era:{'':xsec_M[model]['35'] * 1.971e-07},
-     'ALP_Ntuple_m_40_htj_100to400_UL'+era:{'':xsec_M[model]['40'] * 1.004e-05},
-     'ALP_Ntuple_m_40_htj_400toInf_UL'+era:{'':xsec_M[model]['40'] * 2.301e-07},
-     'ALP_Ntuple_m_45_htj_100to400_UL'+era:{'':xsec_M[model]['45'] * 1.097e-05},
-     'ALP_Ntuple_m_45_htj_400toInf_UL'+era:{'':xsec_M[model]['45'] * 2.358e-07},
-     'ALP_Ntuple_m_50_htj_100to400_UL'+era:{'':xsec_M[model]['50'] * 1.176e-05},
-     'ALP_Ntuple_m_50_htj_400toInf_UL'+era:{'':xsec_M[model]['50'] * 2.691e-07},
-     'ALP_Ntuple_m_55_htj_100to400_UL'+era:{'':xsec_M[model]['55'] * 1.220e-05},
-     'ALP_Ntuple_m_55_htj_400toInf_UL'+era:{'':xsec_M[model]['55'] * 2.746e-07},
-     'ALP_Ntuple_m_60_htj_100to400_UL'+era:{'':xsec_M[model]['60'] * 1.272e-05},
-     'ALP_Ntuple_m_60_htj_400toInf_UL'+era:{'':xsec_M[model]['60'] * 3.032e-07},
-     'ALP_Ntuple_m_65_htj_100to400_UL'+era:{'':xsec_M[model]['65'] * 1.343e-05},
-     'ALP_Ntuple_m_65_htj_400toInf_UL'+era:{'':xsec_M[model]['65'] * 3.453e-07},        
-     'DYJetsToLL':{
-         'M-50_HT-70to100':140.0,
-         'M-50_HT-100to200':139.2, 
-         'M-50_HT-200to400':38.4, 
-         'M-50_HT-400to600':5.174,
-         'M-50_HT-600to800':1.258, 
-         'M-50_HT-800to1200':0.5598, 
-         'M-50_HT-1200to2500':0.1305, 
-         'M-50_HT-2500toInf':0.002997},
-     'DYJetsToLL_M-4to50':{
-         'HT-70to100':321.2,
-         'HT-100to200':190.6,
-         'HT-200to400':42.27,
-         'HT-400to600':4.05,
-         'HT-600toInf':1.216},
+     'ALP_M-10_HT-100to400_'+era: {'': xsec_M[model]['10'] * 3.163e-06},
+     'ALP_M-10_HT-400toInf_'+era: {'': xsec_M[model]['10'] * 3.160e-06},
+     'ALP_M-15_HT-100to400_'+era: {'': xsec_M[model]['15'] * 4.712e-06},
+     'ALP_M-15_HT-400toInf_'+era: {'': xsec_M[model]['15'] * 4.721e-06},
+     'ALP_M-20_HT-100to400_'+era: {'': xsec_M[model]['20'] * 6.164e-06},
+     'ALP_M-20_HT-400toInf_'+era: {'': xsec_M[model]['20'] * 6.175e-06},
+     'ALP_M-25_HT-100to400_'+era: {'': xsec_M[model]['25'] * 7.530e-06},
+     'ALP_M-25_HT-400toInf_'+era: {'': xsec_M[model]['25'] * 7.532e-06},
+     'ALP_M-30_HT-100to400_'+era: {'': xsec_M[model]['30'] * 8.808e-06},
+     'ALP_M-30_HT-400toInf_'+era: {'': xsec_M[model]['30'] * 8.815e-06},
+     'ALP_M-35_HT-100to400_'+era: {'': xsec_M[model]['35'] * 9.970e-06},
+     'ALP_M-35_HT-400toInf_'+era: {'': xsec_M[model]['35'] * 9.966e-06},
+     'ALP_M-40_HT-100to400_'+era: {'': xsec_M[model]['40'] * 1.104e-05},
+     'ALP_M-40_HT-400toInf_'+era: {'': xsec_M[model]['40'] * 1.102e-05},
+     'ALP_M-45_HT-100to400_'+era: {'': xsec_M[model]['45'] * 1.203e-05},
+     'ALP_M-45_HT-400toInf_'+era: {'': xsec_M[model]['45'] * 1.200e-05},
+     'ALP_M-50_HT-100to400_'+era: {'': xsec_M[model]['50'] * 1.290e-05},
+     'ALP_M-50_HT-400toInf_'+era: {'': xsec_M[model]['50'] * 1.290e-05},
+     'ALP_M-55_HT-100to400_'+era: {'': xsec_M[model]['55'] * 1.370e-05},
+     'ALP_M-55_HT-400toInf_'+era: {'': xsec_M[model]['55'] * 1.369e-05},
+     'ALP_M-60_HT-100to400_'+era: {'': xsec_M[model]['60'] * 1.439e-05},
+     'ALP_M-60_HT-400toInf_'+era: {'': xsec_M[model]['60'] * 1.438e-05},
+     'ALP_M-65_HT-100to400_'+era: {'': xsec_M[model]['65'] * 1.501e-05},
+     'ALP_M-65_HT-400toInf_'+era: {'': xsec_M[model]['65'] * 1.498e-05},        
+    # 'DYJetsToLL':{
+    #     'M-50_HT-70to100':140.0,
+    #     'M-50_HT-100to200':139.2, 
+    #     'M-50_HT-200to400':38.4, 
+    #     'M-50_HT-400to600':5.174,
+    #     'M-50_HT-600to800':1.258, 
+    #     'M-50_HT-800to1200':0.5598, 
+    #     'M-50_HT-1200to2500':0.1305, 
+    #     'M-50_HT-2500toInf':0.002997},
+    # 'DYJetsToLL_M-4to50':{
+    #     'HT-70to100':321.2,
+    #     'HT-100to200':190.6,
+    #     'HT-200to400':42.27,
+    #     'HT-400to600':4.05,
+    #     'HT-600toInf':1.216},
+    # 'TT':{
+    #     'TTTo2L2Nu_TuneCP5':88.2497,
+    #     'TTToSemiLeptonic_TuneCP5':365.30899,
+    #     'TTToHadronic_TuneCP5':377.9517},
+    # 'ST':{
+    #     's-channel':3.549,
+    #     # 't-channel_antitop':26.2278,
+    #     # 't-channel_top':44.07048,
+    #     't_antitop':71.75,
+    #     't_top':119.7,
+    #     'tW_antitop':32.51,
+    #     'tW_top':32.45},
+    # 'Diboson':{
+    #     'WW':76.25,
+    #     'WZ':27.55,
+    #     'ZZ':12.23},
+    #  'WJetsToLNu_flat':{
+    #      'TuneCP5':52940.0},
+    #  'WJetsToLNu':{
+    #      'HT-70to100':1264.0,
+    #      'HT-100to200':1343.0,
+    #      'HT-200to400':359.6,
+    #      'HT-400to600':48.85,
+    #      'HT-600to800':12.05,
+    #      'HT-800to1200':5.501,
+    #      'HT-1200to2500':1.329},
+    #  'QCD':{
+    #      'HT-50to100':185300000.0,
+    #      'HT-100to200':23590000.0,
+    #      'HT-200to300':1551000.0,
+    #      'HT-300to500':323400.0,
+    #      'HT-500to700':30140.0,
+    #      'HT-700to1000':6344.0,
+    #      'HT-1000to1500':1092.0,
+    #      'HT-1500to2000':99.76,
+    #      'HT-2000toInf':20.35},
+    # 'Y':{
+    #     'pth400':0.0504*0.01*0.00945495019497735,
+    #     'pth100':47.980*0.01*0.00945495019497735},
+    
+    # 'DYJetsToLL_M-10to50':{
+    #     'DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8':20950},
+    # 'DYJetsToLL_M-50':{
+    #     'DYto2L-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8':4969.83,
+    #     'DYto2L-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8':948.04,
+    #     'DYto2L-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8':365.61},
+     'DYto2L-4Jets_MLL-4to50':{
+        'HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8':911.4,
+        'HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8':346.6,
+        'HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8':316.8,
+        'HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8':5.649,
+        'HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.4204,
+        'HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.02079,
+        'HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.00107},
+     'DYto2L-4Jets_MLL-50to120':{
+        'HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8':316.7,
+        'HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8':140.6,
+        'HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8':179.6,
+        'HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8':6.742,
+        'HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.693,
+        'HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.05047,
+        'HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.00346},
+     'DYto2L-4Jets_MLL-120':{
+        'HT-40to70_TuneCP5_13p6TeV_madgraphMLM-pythia8':4.6,
+        'HT-70to100_TuneCP5_13p6TeV_madgraphMLM-pythia8':2.205,
+        'HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8':3.352,
+        'HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.1757,
+        'HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.02089,
+        'HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.001697,
+        'HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.0001247},
      'TT':{
-         'TTTo2L2Nu_TuneCP5':88.2497,
-         'TTToSemiLeptonic_TuneCP5':365.30899,
-         'TTToHadronic_TuneCP5':377.9517},
+         'TTto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8':97.74,
+         'TTtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8':420.31,
+         'TTto4Q_TuneCP5_13p6TeV_powheg-pythia8':404.95},
      'ST':{
-         's-channel':3.549,
-         # 't-channel_antitop':26.2278,
-         # 't-channel_top':44.07048,
-         't_antitop':71.75,
-         't_top':119.7,
-         'tW_antitop':32.51,
-         'tW_top':32.45},
+         'TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8':2.278,
+         'TbarBtoLminusNuB-s-channel-4FS_TuneCP5_13p6TeV_amcatnlo-pythia8':1.430,
+         'TBbarQ_t-channel_4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8':123.8,
+         'TbarBQ_t-channel_4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8':75.47,
+         'TWminus_DR_AtLeastOneLepton_TuneCP5_13p6TeV_powheg-pythia8':35.99,
+         'TbarWplus_DR_AtLeastOneLepton_TuneCP5_13p6TeV_powheg-pythia8':36.5},
+    # 'WJetsToLNu':{
+    #     'WtoLNu-4Jets_1J_TuneCP5_13p6TeV_madgraphMLM-pythia8':9139.0,
+    #     'WtoLNu-4Jets_2J_TuneCP5_13p6TeV_madgraphMLM-pythia8':2927.0,
+    #     'WtoLNu-4Jets_3J_TuneCP5_13p6TeV_madgraphMLM-pythia8':863.1,
+    #     'WtoLNu-4Jets_4J_TuneCP5_13p6TeV_madgraphMLM-pythia8':415.4},
+     'WtoLNu-4Jets_MLNu-0to120':{
+        'HT-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8':4254.0,
+        'HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8':1626.0,
+        'HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8':59.99,
+        'HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8':6.23,
+        'HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.4477,
+        'HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.03075},
+     'WtoLNu-4Jets_MLNu-120':{
+        'HT-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8':20.56,
+        'HT-100to400_TuneCP5_13p6TeV_madgraphMLM-pythia8':10.19,
+        'HT-400to800_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.5239,
+        'HT-800to1500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.06255,
+        'HT-1500to2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.005066,
+        'HT-2500_TuneCP5_13p6TeV_madgraphMLM-pythia8':0.0003788},
      'Diboson':{
-         'WW':76.25,
-         'WZ':27.55,
-         'ZZ':12.23},
-      'WJetsToLNu_flat':{
-          'TuneCP5':52940.0},
-      'WJetsToLNu':{
-          'HT-70to100':1264.0,
-          'HT-100to200':1343.0,
-          'HT-200to400':359.6,
-          'HT-400to600':48.85,
-          'HT-600to800':12.05,
-          'HT-800to1200':5.501,
-          'HT-1200to2500':1.329},
-      'QCD':{
-          'HT-50to100':185300000.0,
-          'HT-100to200':23590000.0,
-          'HT-200to300':1551000.0,
-          'HT-300to500':323400.0,
-          'HT-500to700':30140.0,
-          'HT-700to1000':6344.0,
-          'HT-1000to1500':1092.0,
-          'HT-1500to2000':99.76,
-          'HT-2000toInf':20.35},
-     'Y':{
-         'pth400':0.0504*0.01*0.00945495019497735,
-         'pth100':47.980*0.01*0.00945495019497735}
+         'WWto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8':11.79,
+         'WWtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8':48.94,
+         'WWto4Q_TuneCP5_13p6TeV_powheg-pythia8':50.79,
+         'WZto3LNu_TuneCP5_13p6TeV_powheg-pythia8':4.924,
+         'WZtoLNu2Q_TuneCP5_13p6TeV_powheg-pythia8':15.87,
+         'WZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8':7.568,
+         'WZto4Q-1Jets-4FS_TuneCP5_13p6TeV_amcatnloFXFX-pythia8':24.83,
+         'ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8':1.031,
+         'ZZto2L2Q_TuneCP5_13p6TeV_powheg-pythia8':6.788,
+         'ZZto2Nu2Q_TuneCP5_13p6TeV_powheg-pythia8':4.826,
+         'ZZto4L_TuneCP5_13p6TeV_powheg-pythia8':1.39},
 }
 
 
 if args.filename :
     fileName = args.filename
 
-
 def weightBackgroundHists(hists, files, version, study, var, Sample, era):
     for sample in Sample:
         h = None
         for mass in list(xsecs[sample]):
-            filename = "h_"+fileName+"_"+era+"_Ntuple_"+sample+"_"+mass+"_"+version+".root"
-            # filename = "h_"+fileName+"_"+era+"_"+sample+"_"+mass+"_"+version+".root"
+            #filename = "h_"+fileName+"_"+era+"_Ntuple_"+sample+"_"+mass+"_"+version+".root"
+            #filename = "h_"+fileName+"_"+era+"_"+sample+"_"+mass+"_"+version+".root"
+        
+            plotDir = "./output/"+version+"/"
+            if mass != '':
+                filename = plotDir+"h_"+fileName+"_"+era+"_"+sample+"_"+mass+"_"+version+".root"
+            else:
+                filename = plotDir+"h_"+fileName+"_"+era+"_"+sample+"_"+version+".root"
             histname=var 
             print(filename, histname)
             fil=ROOT.TFile(filename, 'r')
@@ -280,7 +358,12 @@ files = []
 #L = 16800.0 #2016post
 #L = 36700.0 #2017 ETau
 #L = 41530.0 #2017
-L = 59740.0 #2018
+#L = 59740.0 #2018
+L = 7990.0  #2022
+#L = 26680.0 #2022EE
+#L = 17960.0 #2023
+#L = 9680.0 #2023BPix
+#L = 109950.0 #2024
 
 #L = 14000.0 #MET_2018_BC
 #L = 137600.0 #Full RunII
@@ -303,23 +386,24 @@ signal_sample = []
 signal_mass= []
 
 if args.tcp :
-#    signal_sample = ['ALP_Ntuple_m_30_htj_100to400','ALP_Ntuple_m_30_htj_400toInf', 'ALP_Ntuple_m_20_htj_100to400', 'ALP_Ntuple_m_20_htj_400toInf', 'ALP_Ntuple_m_50_htj_100to400', 'ALP_Ntuple_m_50_htj_400toInf','ALP_Ntuple_m_65_htj_100to400','ALP_Ntuple_m_65_htj_400toInf']
-    # signal_sample = ['ALP_Ntuple_m_15_htj_100to400', 'ALP_Ntuple_m_15_htj_400toInf','ALP_Ntuple_m_20_htj_100to400', 'ALP_Ntuple_m_20_htj_400toInf','ALP_Ntuple_m_25_htj_100to400', 'ALP_Ntuple_m_25_htj_400toInf','ALP_Ntuple_m_30_htj_100to400','ALP_Ntuple_m_30_htj_400toInf','ALP_Ntuple_m_35_htj_100to400', 'ALP_Ntuple_m_35_htj_400toInf','ALP_Ntuple_m_40_htj_100to400', 'ALP_Ntuple_m_40_htj_400toInf','ALP_Ntuple_m_45_htj_100to400', 'ALP_Ntuple_m_45_htj_400toInf', 'ALP_Ntuple_m_60_htj_100to400', 'ALP_Ntuple_m_60_htj_400toInf','ALP_Ntuple_m_55_htj_100to400', 'ALP_Ntuple_m_55_htj_400toInf','ALP_Ntuple_m_50_htj_100to400', 'ALP_Ntuple_m_50_htj_400toInf']
-    signal_sample = ['ALP_Ntuple_m_30_htj_100to400_UL'+era,'ALP_Ntuple_m_30_htj_400toInf_UL'+era]
+#    signal_sample = ['ALP_M-30_HT-100to400','ALP_M-30_HT-400toInf', 'ALP_M-20_HT-100to400', 'ALP_M-20_HT-400toInf', 'ALP_M-50_HT-100to400', 'ALP_M-50_HT-400toInf','ALP_M-65_HT-100to400','ALP_M-65_HT-400toInf']
+    # signal_sample = ['ALP_M-15_HT-100to400', 'ALP_M-15_HT-400toInf','ALP_M-20_HT-100to400', 'ALP_M-20_HT-400toInf','ALP_M-25_HT-100to400', 'ALP_M-25_HT-400toInf','ALP_M-30_HT-100to400','ALP_M-30_HT-400toInf','ALP_M-35_HT-100to400', 'ALP_M-35_HT-400toInf','ALP_M-40_HT-100to400', 'ALP_M-40_HT-400toInf','ALP_M-45_HT-100to400', 'ALP_M-45_HT-400toInf', 'ALP_M-60_HT-100to400', 'ALP_M-60_HT-400toInf','ALP_M-55_HT-100to400', 'ALP_M-55_HT-400toInf','ALP_M-50_HT-100to400', 'ALP_M-50_HT-400toInf']
+    signal_sample = ['ALP_M-30_HT-100to400_'+era,'ALP_M-30_HT_400toInf'+era]
     signal_mass = [x.split("_")[0]+'_'+x.split("_")[1]+'_'+x.split("_")[2]+'_'+x.split("_")[3] for x in signal_sample]
     signal_mass = list(set(signal_mass))
     Sample = signal_sample
 if args.all :
-    signal_sample = ['ALP_Ntuple_m_15_htj_100to400_UL'+era, 'ALP_Ntuple_m_15_htj_400toInf_UL'+era,'ALP_Ntuple_m_20_htj_100to400_UL'+era, 'ALP_Ntuple_m_20_htj_400toInf_UL'+era,'ALP_Ntuple_m_25_htj_100to400_UL'+era, 'ALP_Ntuple_m_25_htj_400toInf_UL'+era,'ALP_Ntuple_m_30_htj_100to400_UL'+era,'ALP_Ntuple_m_30_htj_400toInf_UL'+era,'ALP_Ntuple_m_35_htj_100to400_UL'+era, 'ALP_Ntuple_m_35_htj_400toInf_UL'+era,'ALP_Ntuple_m_40_htj_100to400_UL'+era, 'ALP_Ntuple_m_40_htj_400toInf_UL'+era, 'ALP_Ntuple_m_60_htj_100to400_UL'+era, 'ALP_Ntuple_m_60_htj_400toInf_UL'+era,'ALP_Ntuple_m_55_htj_100to400_UL'+era, 'ALP_Ntuple_m_55_htj_400toInf_UL'+era,'ALP_Ntuple_m_50_htj_100to400_UL'+era, 'ALP_Ntuple_m_50_htj_400toInf_UL'+era, 'ALP_Ntuple_m_45_htj_100to400_UL'+era, 'ALP_Ntuple_m_45_htj_400toInf_UL'+era, 'ALP_Ntuple_m_65_htj_100to400_UL'+era, 'ALP_Ntuple_m_65_htj_400toInf_UL'+era]
-    signal_mass = [x.split("_")[0]+'_'+x.split("_")[1]+'_'+x.split("_")[2]+'_'+x.split("_")[3] for x in signal_sample]
+    signal_sample = ['ALP_M-15_HT-100to400_'+era, 'ALP_M-15_HT-400toInf_'+era,'ALP_M-20_HT-100to400_'+era, 'ALP_M-20_HT-400toInf_'+era,'ALP_M-25_HT-100to400_'+era, 'ALP_M-25_HT-400toInf_'+era,'ALP_M-30_HT-100to400_'+era,'ALP_M-30_HT-400toInf_'+era,'ALP_M-35_HT-100to400_'+era, 'ALP_M-35_HT-400toInf_'+era,'ALP_M-40_HT-100to400_'+era, 'ALP_M-40_HT-400toInf_'+era, 'ALP_M-45_HT-100to400_'+era, 'ALP_M-45_HT-400toInf_'+era, 'ALP_M-50_HT-100to400_'+era, 'ALP_M-50_HT-400toInf_'+era, 'ALP_M-55_HT-100to400_'+era, 'ALP_M-55_HT-400toInf_'+era, 'ALP_M-60_HT-100to400_'+era, 'ALP_M-60_HT-400toInf_'+era, 'ALP_M-65_HT-100to400_'+era, 'ALP_M-65_HT-400toInf_'+era]
+    signal_mass = [x.split("_")[0]+'_'+x.split("_")[1] for x in signal_sample]
     signal_mass = list(set(signal_mass))
-    bkg_sample = ['DYJetsToLL','DYJetsToLL_M-4to50','WJetsToLNu','Diboson','TT','ST']
+    #bkg_sample = ['DYJetsToLL','DYJetsToLL_M-4to50','WJetsToLNu','Diboson','TT','ST']
+    bkg_sample = ['DYto2L-4Jets_MLL-4to50','DYto2L-4Jets_MLL-50to120','DYto2L-4Jets_MLL-120','WtoLNu-4Jets_MLNu-0to120','WtoLNu-4Jets_MLNu-120','Diboson','TT','ST']
     Sample = signal_sample+bkg_sample
 if args.bkg :
     Sample = ['TT','ST']
 
 
-VARIABLE = ['Lepton1Pt', 'Lepton2Pt','dRl', 'MetPt']
+VARIABLE = ['Lepton1Pt', 'Lepton2Pt','dRl', 'MetPt', 'Mass', 'VisMass']
 
 REGION = []
 
@@ -335,12 +419,12 @@ if args.histo is not None:
     
 for var in histlist:
     weightBackgroundHists(hists, files, version, study, var, Sample, era)
-
+    plotDir = "./output/"+version+"/"
     if scaling == 'xsection':
-         out = ROOT.TFile("h_"+var+"_"+study+"_"+iteration+"_"+model+".root",'recreate')
+         out = ROOT.TFile(plotDir+"h_"+var+"_"+study+"_"+iteration+"_"+model+".root",'recreate')
          print(out)
     else: 
-         out = ROOT.TFile("h_"+study+"_"+var+"_"+version+"_unity.root",'recreate')
+         out = ROOT.TFile(plotDir+"h_"+study+"_"+var+"_"+version+"_unity.root",'recreate')
 
     out.cd()
 
@@ -348,10 +432,12 @@ for var in histlist:
 
     for name in Sample:
         try:
-            if name=='DYJetsToLL':
+            if name=='DYJetsToLL_M-4to10':
                 hists[name].SetFillColor(ROOT.kRed-6)
-            elif name=='DYJetsToLL_M-4to50':
+            elif name=='DYJetsToLL_M-10to50':
                 hists[name].SetFillColor(ROOT.kRed-9)
+            elif name=='DYJetsToLL_M-50':
+                hists[name].SetFillColor(ROOT.kRed-7)
             elif name=='TTJets':
                 hists[name].SetFillColor(ROOT.kOrange-4)
             elif name=='TTTo2L2Nu':

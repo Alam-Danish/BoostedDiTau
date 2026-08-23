@@ -17,17 +17,35 @@ parser = argparse.ArgumentParser(description="Main plotting script for the boost
 parser.add_argument("-i", "--inputfile", type=str, required=True, help="Text file with list of ntuple root files")
 parser.add_argument("-s", "--sample", type=str, required=True, help="Type of sample. Accepted: MC, SingleMuon, SingleElectron, MuonEG, TCP")
 parser.add_argument("--folder", type=str, help="Output folder. Default is /output/")
-parser.add_argument("--year", type=str, required=True, help="Year. Accepted: 2016preVFP, 2016postVFP, 2017, 2018")
+parser.add_argument("--year", type=str, required=True, help="Year. Accepted: 2022, 2022EE, 2023, 2023BPix, 2024")
 args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
 year = args.year
 
-idjson = correctionlib.CorrectionSet.from_file("Efficiencies_ID_TRK_UL"+year+"_schemaV2.json")
-trigjson = correctionlib.CorrectionSet.from_file("Efficiencies_muon_generalTracks_Z_Run"+year+"_UL_SingleMuonTriggers_schemaV2.json")
+#idjson = correctionlib.CorrectionSet.from_file("Efficiencies_ID_TRK_UL"+year+"_schemaV2.json")
+#trigjson = correctionlib.CorrectionSet.from_file("Efficiencies_muon_generalTracks_Z_Run"+year+"_UL_SingleMuonTriggers_schemaV2.json")
 
-EGsffile = ROOT.TFile("egammaEffi_EGM2D_UL"+year+".root")
-
+EGsffile = ROOT.TFile("egammaEffi_EGM2D_"+year+".root")
 EGsfhist = EGsffile.Get("EGamma_SF2D")
+
+
+#EGsffile = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22/electron.json.gz')
+#EG_KEY  = 'Electron-ID-SF'
+#EG_YEAR = '2022Re-recoBCD'
+if year == "2022":
+    mu_idjson = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2022_Summer22/muon_Z.json.gz')
+elif year == "2022EE":
+    mu_idjson = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2022_Summer22EE/muon_Z.json.gz')
+elif year == "2023":
+    mu_idjson = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23/muon_Z.json.gz')
+elif year == "2023BPix":
+    mu_idjson = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23BPix/muon_Z.json.gz')
+elif year == "2024":
+    mu_idjson = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2024_Summer24/muon_Z.json.gz')
+        
+MU_ID_KEY   = 'NUM_MediumID_DEN_TrackerMuons'
+MU_ISO_KEY  = 'NUM_LoosePFIso_DEN_MediumID'
+MU_TRIG_KEY = 'NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium'
 
 outputTitle = "h_checkETauTTEnriched_"+year
 
@@ -101,7 +119,7 @@ chain2 = ROOT.TChain('tcpTrigNtuples/triggerTree')
 if isData == 0:
 #    chain3 = ROOT.TChain('lumiSummary/lumiTree')
     chain4 = ROOT.TChain('tcpGenNtuples/genTree')
-    chain5 = ROOT.TChain('tcpPrefiring/prefiringTree')
+    #chain5 = ROOT.TChain('tcpPrefiring/prefiringTree')
 chain6 = ROOT.TChain('tcpMetfilter/metfilterTree')
 chain7 = ROOT.TChain('testTrigObj/TriggerObjectTree')
 
@@ -130,7 +148,7 @@ def book_histogram():
     h['hWeights'] = ROOT.TH1F ("hWeights", "Weights per events; weight; N", 100, 0, 2)
     h['hGenWeights'] = ROOT.TH1F ("hGenWeights", "Genweights per events; genweight; N", 100, 0, 2)
     h['hPuWeights'] = ROOT.TH1F ("hPuWeights", "PUweights per events; PUweight; N", 100, 0, 2)
-    h['hPrWeights'] = ROOT.TH1F ("hPrWeights", "PreFiringWeights per events; PRweight; N", 100, 0, 2)
+    #h['hPrWeights'] = ROOT.TH1F ("hPrWeights", "PreFiringWeights per events; PRweight; N", 100, 0, 2)
 
     # ---------- Objects ---------- #
 
@@ -261,7 +279,22 @@ def get_EGsf(eta, pt):
     egsf = EGsfhist.GetBinContent(binEta, binPt)
 
     return egsf
+    #if pt < 10.0: return 1.0
 
+    #if   pt < 20:  wp = 'RecoBelow20'
+    #elif pt <= 75: wp = 'Reco20to75'
+    #else:          wp = 'RecoAbove75'
+    #reco = EGsffile[EG_KEY].evaluate(EG_YEAR, 'sf', wp,      eta, pt)
+    #tid  = EGsffile[EG_KEY].evaluate(EG_YEAR, 'sf', 'Tight', eta, pt)
+    #return reco * tid
+
+def get_muSF(eta, pt):
+    idsf   = mu_idjson[MU_ID_KEY].evaluate(abs(eta), pt, 'nominal')
+    isosf  = mu_idjson[MU_ISO_KEY].evaluate(abs(eta), pt, 'nominal')
+    trigsf = 1.0
+    if pt <= 200.0:
+        trigsf = mu_idjson[MU_TRIG_KEY].evaluate(abs(eta), pt, 'nominal')
+    return idsf * isosf * trigsf
 
 def plot_variable(region, l1, l2, j, m, sf=1):
 
@@ -303,6 +336,11 @@ def hist_for_sf(baselineSel):
 
         h['ETau_'+baselineSel+'_JetEta_jetpt'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_JetEta_jetpt'+str(i), 'ETau_'+baselineSel+'_JetEta_jetpt'+str(i)+' ; JetEta ; N', 100, -2.5, 2.5)
         h['ETau_'+baselineSel+'_JetEta_pass_jetpt'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_JetEta_pass_jetpt'+str(i), 'ETau_'+baselineSel+'_JetEta_pass_jetpt'+str(i)+' ; JetEta ; N', 100, -2.5, 2.5)
+
+        h['ETau_'+baselineSel+'_EPt_poseta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_poseta'+str(i), 'ETau_'+baselineSel+'_EPt_poseta'+str(i)+' ; Electron p_{T} (GeV) ; Efficiency', 500, 0, 500)
+        h['ETau_'+baselineSel+'_EPt_pass_poseta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_pass_poseta'+str(i), 'ETau_'+baselineSel+'_EPt_pass_poseta'+str(i)+' ; Electron p_{T} (GeV) ; Efficiency', 500, 0, 500)
+        h['ETau_'+baselineSel+'_EPt_negeta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_negeta'+str(i), 'ETau_'+baselineSel+'_EPt_negeta'+str(i)+' ; Electron p_{T} (GeV) ; Efficiency', 500, 0, 500)
+        h['ETau_'+baselineSel+'_EPt_pass_negeta'+str(i)] = ROOT.TH1F('ETau_'+baselineSel+'_EPt_pass_negeta'+str(i), 'ETau_'+baselineSel+'_EPt_pass_negeta'+str(i)+' ; Electron p_{T} (GeV) ; Efficiency', 500, 0, 500)
 
 
 def select_Nm1(l1, l2, ljet, ms, channel):
@@ -399,17 +437,17 @@ def measure_btag_eff(region, theJet, sf=1):
     for js in theJet:
         if js.jetflavour == 5 : #bjet
             h[region+"_BFlavour_JetPtEta_"+year].Fill(js.pt, abs(js.eta))
-            if js.deepjet >= 0.7476 : #btagged
+            if js.deepjet >= 0.7183 : #btagged
                 h[region+'_BFlavour_BTagged_JetPtEta_'+year].Fill(js.pt, abs(js.eta))
 
         if js.jetflavour == 4 : #cjet
             h[region+"_CFlavour_JetPtEta_"+year].Fill(js.pt, abs(js.eta))
-            if js.deepjet >= 0.7476 : #btagged
+            if js.deepjet >= 0.7183 : #btagged
                 h[region+'_CFlavour_BTagged_JetPtEta_'+year].Fill(js.pt, abs(js.eta))
 
         if js.jetflavour == 0 : #ljet
             h[region+'_LFlavour_JetPtEta_'+year].Fill(js.pt, abs(js.eta))
-            if js.deepjet >= 0.7476 : #btagged
+            if js.deepjet >= 0.7183 : #btagged
                 h[region+'_LFlavour_BTagged_JetPtEta_'+year].Fill(js.pt, abs(js.eta))
     
 
@@ -475,11 +513,11 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
 
     muTrigThresh = 26.0        
             
-    if year == '2018' : 
-        if ( jet.Phi() > -1.57 and jet.Phi() < -0.87 and jet.Eta() > -3.0 and jet.Eta() < -1.3 ) : return
-        if ( e.Phi() > -1.57 and e.Phi() < -0.87 and e.Eta() > -3.0 and e.Eta() < -1.3 ) : return
+    #if year == '2018' : 
+    #    if ( jet.Phi() > -1.57 and jet.Phi() < -0.87 and jet.Eta() > -3.0 and jet.Eta() < -1.3 ) : return
+    #    if ( e.Phi() > -1.57 and e.Phi() < -0.87 and e.Eta() > -3.0 and e.Eta() < -1.3 ) : return
 
-    if year == '2017' : muTrigThresh = 29.0
+    #if year == '2017' : muTrigThresh = 29.0
 
     if isMatchedMu == True and mu.Pt() >= 52 : isSingleMuonEvent = True
     if isMatchedIsoMu == True and mu.Pt() >= muTrigThresh : isIsoMuonEvent = True
@@ -496,30 +534,32 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
 
         if theMu[0].charge*theEle[0].charge < 0 and etauOS == True :
 
-            muon_id_sf = 1
-            muon_track_sf = 1
-            muon_trig_sf = 1
+            #muon_id_sf = 1
+            #muon_track_sf = 1
+            #muon_trig_sf = 1
             ele_id_sf = 1
+            muon_sf = 1
 
             if isData == 0:
                 if abs(e.Eta()) < 2.5 and e.Pt() < 500:
                     ele_id_sf = get_EGsf(e.Eta(), e.Pt())
                 if abs(mu.Eta()) <= 2.4:
-                    muon_id_sf = idjson["NUM_MediumID_DEN_TrackerMuons"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                    if mu.Pt() >= 40.0 :
-                        if year == "2017" or year == "2018":
-                            muon_track_sf = idjson["NUM_TrackerMuons_DEN_genTracks"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                    if mu.Pt() <= 200.0 :
-                        if year == "2016preVFP" or year == "2016postVFP":
-                            muon_trig_sf = trigjson["NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                        elif year == "2017":
-                            muon_trig_sf = trigjson["NUM_IsoMu27_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
-                        elif year == "2018":
-                            muon_trig_sf = trigjson["NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    muon_sf = get_muSF(mu.Eta(), mu.Pt())
+                    
+                    #muon_id_sf = idjson["NUM_MediumID_DEN_TrackerMuons"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    #if mu.Pt() >= 40.0 :
+                    #    if year == "2017" or year == "2018":
+                    #        muon_track_sf = idjson["NUM_TrackerMuons_DEN_genTracks"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    #if mu.Pt() <= 200.0 :
+                    #    if year == "2016preVFP" or year == "2016postVFP":
+                    #        muon_trig_sf = trigjson["NUM_IsoMu24_or_IsoTkMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    #    elif year == "2017":
+                    #        muon_trig_sf = trigjson["NUM_IsoMu27_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
+                    #    elif year == "2018":
+                    #        muon_trig_sf = trigjson["NUM_IsoMu24_DEN_CutBasedIdMedium_and_PFIsoMedium"].evaluate(abs(mu.Eta()), mu.Pt(), "nominal")
 
-            muon_sf = muon_id_sf*muon_track_sf*muon_trig_sf
-            ele_sf = ele_id_sf
-            sfTot = muon_sf*ele_sf
+            #muon_sf = muon_id_sf*muon_track_sf*muon_trig_sf
+            sfTot = muon_sf*ele_id_sf
 
             if jet.Pt() >= 200.0 and e.Pt() >= 60.0:
                 plot_variable('ETau_'+baselineSel+"_jetPtcut_ePtcut", e, mu, jet, met, sfTot)
@@ -566,6 +606,58 @@ def measure_eff(baselineSel, theEle, theJet, theMu):
                             h['ETau_'+baselineSel+'_EPt_eta5'].Fill(e.Pt(), weight*sfTot)
                             if isEleJet == 1 :
                                 h['ETau_'+baselineSel+'_EPt_pass_eta5'].Fill(e.Pt(), weight*sfTot)
+
+                        # Positive eta:
+                        if e.Eta() >= abseta[0] and e.Eta() < abseta[1]:
+                            h['ETau_'+baselineSel+'_EPt_poseta1'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_poseta1'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() >= abseta[1] and e.Eta() < abseta[2]:
+                            h['ETau_'+baselineSel+'_EPt_poseta2'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_poseta2'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() >= abseta[2] and e.Eta() < abseta[3]:
+                            h['ETau_'+baselineSel+'_EPt_poseta3'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_poseta3'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() >= abseta[3] and e.Eta() < abseta[4]:
+                            h['ETau_'+baselineSel+'_EPt_poseta4'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_poseta4'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() >= abseta[4] and e.Eta() <= abseta[5]:
+                            h['ETau_'+baselineSel+'_EPt_poseta5'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_poseta5'].Fill(e.Pt(), weight*sfTot)
+
+                        # Negative eta:
+                        if e.Eta() > -abseta[1] and e.Eta() <= -abseta[0]:
+                            h['ETau_'+baselineSel+'_EPt_negeta1'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_negeta1'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() > -abseta[2] and e.Eta() <= -abseta[1]:
+                            h['ETau_'+baselineSel+'_EPt_negeta2'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_negeta2'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() > -abseta[3] and e.Eta() <= -abseta[2]:
+                            h['ETau_'+baselineSel+'_EPt_negeta3'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_negeta3'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() > -abseta[4] and e.Eta() <= -abseta[3]:
+                            h['ETau_'+baselineSel+'_EPt_negeta4'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_negeta4'].Fill(e.Pt(), weight*sfTot)
+
+                        if e.Eta() >= -abseta[5] and e.Eta() <= -abseta[4]:
+                            h['ETau_'+baselineSel+'_EPt_negeta5'].Fill(e.Pt(), weight*sfTot)
+                            if isEleJet == 1:
+                                h['ETau_'+baselineSel+'_EPt_pass_negeta5'].Fill(e.Pt(), weight*sfTot)
 
                                 
                         if e.Pt() >= Ept[0] and e.Pt() < Ept[1] :
@@ -652,7 +744,7 @@ for inputFileName in inputFileNames:
     if isData == 0:
 #        chain3.Add(inputFileName)
         chain4.Add(inputFileName)
-        chain5.Add(inputFileName)
+        #chain5.Add(inputFileName)
 
     chain6.Add(inputFileName)
     chain7.Add(inputFileName)
@@ -664,7 +756,7 @@ fchain.AddFriend(chain2)
 if isData == 0:
 #    fchain.AddFriend(chain3)
     fchain.AddFriend(chain4)
-    fchain.AddFriend(chain5)
+    #fchain.AddFriend(chain5)
     
 fchain.AddFriend(chain6)
 fchain.AddFriend(chain7)
@@ -719,15 +811,16 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     if isData == 0 :
         genweight = fchain.GetLeaf('genWeight').GetValue()
         puweight = fchain.GetLeaf('puWeight').GetValue()
-        prweight = fchain.GetLeaf('prefiringWeight').GetValue()
+        #prweight = fchain.GetLeaf('prefiringWeight').GetValue()
         tauidsf = 0.97
     else :
         genweight = 1
         puweight = 1
-        prweight = 1
+        #prweight = 1
         tauidsf = 1
 
-    weight = genweight*puweight*prweight*tauidsf
+    #weight = genweight*puweight*prweight*tauidsf
+    weight = genweight*puweight*tauidsf
     # print('total weight', weight)
     # print('genweight', genweight)
     # print('puweight', puweight)
@@ -740,7 +833,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     h['hWeights'].Fill(weight)
     h['hPuWeights'].Fill(puweight)
     h['hGenWeights'].Fill(genweight)
-    h['hPrWeights'].Fill(prweight)
+    #h['hPrWeights'].Fill(prweight)
 
     #-------------- Gen particles -----------#
 
@@ -778,7 +871,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
             if iobj.isJetLeg == 1 : tOisEleJet+=[iobj]
             if iobj.isMu == 1 : tOisMu+=[iobj]
             if iobj.isIsoMu == 1 : tOisIsoMu +=[iobj]
-            if iobj.isSingleJet == 1 : tOisSingleJet+=[iobj]
+            if iobj.isSingleJet500 == 1 : tOisSingleJet+=[iobj]
             if iobj.isMuonEGmu == 1 : tOisMuonEGmu+=[iobj]
             if iobj.isMuonEGe == 1 : tOisMuonEGe+=[iobj]
             if iobj.isPhoton == 1 : tOisPhoton+=[iobj]
@@ -790,9 +883,10 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     #-------------- Trigger definitions -----------#
 
     isHT = fchain.GetLeaf('isHT').GetValue()
-    isHTMHT = fchain.GetLeaf('isHTMHT').GetValue()
+    #isHTMHT = fchain.GetLeaf('isHTMHT').GetValue()
     isMu = fchain.GetLeaf('isMu').GetValue()
     isIsoMu = fchain.GetLeaf('isIsoMu').GetValue()
+    isIsoMu24 = fchain.GetLeaf('isIsoMu24').GetValue() 
     isIsoMuTau = fchain.GetLeaf('isIsoMuTau').GetValue()
     isIsoEle = fchain.GetLeaf('isIsoEle').GetValue()
     isEleTau = fchain.GetLeaf('isEleTau').GetValue()
@@ -802,16 +896,20 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     isEleJet = fchain.GetLeaf('isEleJet').GetValue()
     isSingleJet500 = fchain.GetLeaf('isSingleJet500').GetValue()
     isSingleJet450 = fchain.GetLeaf('isSingleJet450').GetValue()
+    isSingleJet550 = fchain.GetLeaf('isSingleJet550').GetValue()
+    isDisplacedDiTau = fchain.GetLeaf('isDisplacedDiTau').GetValue()
 
     #------------ MET Filter --------------#
 
     pvFilter = fchain.GetLeaf('primaryvertexfilter').GetValue()
     haloFilter = fchain.GetLeaf('beamhalofilter').GetValue()
-    hbheFilter = fchain.GetLeaf('hbhefilter').GetValue()
-    hbheIsoFilter = fchain.GetLeaf('hbheisofilter').GetValue()
+    #hbheFilter = fchain.GetLeaf('hbhefilter').GetValue()
+    #hbheIsoFilter = fchain.GetLeaf('hbheisofilter').GetValue()
+    hfNoisyFilter   = fchain.GetLeaf('hfnoisyhitsfilter').GetValue()
     eeBadSCFilter = fchain.GetLeaf('eebadscfilter').GetValue()
     ecalTPFilter = fchain.GetLeaf('ecaltpfilter').GetValue()
     badMuonFilter = fchain.GetLeaf('badpfmuonfilter').GetValue()
+    badMuonDzFilter = fchain.GetLeaf('badpfmuonDzfilter').GetValue()
     ecalBadCalFilter = fchain.GetLeaf('ecalbadcalfilter').GetValue()
 
     #------------ Objects loop ------------#
@@ -832,13 +930,13 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
                     iht = iht + ijet.pt
                     s_jet+=[ijet]
                     if isData == 0 :
-                        if ijet.deepjet >= 0.7476:
+                        if ijet.deepjet >= 0.7183:
                             h['hBJetPt'].Fill(ijet.pt, weight) 
                             s_bjet+=[ijet]
                         elif ijet.jetflavour != 5:
                             s_notbjet+=[ijet]
                     else:
-                        if ijet.deepjet >= 0.7476:
+                        if ijet.deepjet >= 0.7183:
                             h['hBJetPt'].Fill(ijet.pt, weight)
                             s_bjet+=[ijet]
                         else:
@@ -899,14 +997,14 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausECleaned.size()):
             itau = tausECleaned.at(i)
             if abs(itau.eta) < 2.3 and itau.pt >= 20.0:
-                if itau.mvaid >=1 :
+                if itau.vsjet >=1 :
                     s_tauEclean+=[itau]
-                if itau.mvaid >= 4: #Medium
+                if itau.vsjet >= 4: #Medium
                     h['hTauECleanedPt'].Fill(itau.pt, weight)
                     s_tauEcleanNom+=[itau]
-                if itau.mvaid >= 1 : s_tauEcleanAlt+=[itau] #VVLoose
-                if itau.mvaid >= 2 : s_tauEcleanAltVLoose+=[itau]
-                if itau.mvaid >= 3 : s_tauEcleanAltLoose+=[itau]
+                if itau.vsjet >= 1 : s_tauEcleanAlt+=[itau] #VVLoose
+                if itau.vsjet >= 2 : s_tauEcleanAltVLoose+=[itau]
+                if itau.vsjet >= 3 : s_tauEcleanAltLoose+=[itau]
                 # if itau.mvaid < 4 :
                 #     s_tauEcleanAltnoID+=[itau]
                 #     if itau.mvaid >= 1 : s_tauEcleanAlt+=[itau] #VVLoose
@@ -919,10 +1017,10 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausMCleaned.size()):
             itau = tausMCleaned.at(i)
             if abs(itau.eta) < 2.3 and itau.pt >= 20.0:
-                if itau.mvaid >= 4 :
+                if itau.vsjet >= 4 :
                     h['hTauMuCleanedPt'].Fill(itau.pt, weight)
                     s_tauMucleanNom+=[itau]
-                if itau.mvaid >= 1 and itau.mvaid < 4 :
+                if itau.vsjet >= 1 and itau.vsjet < 4 :
                     s_tauMucleanAlt+=[itau]
 
     s_tauBoosted = []
@@ -930,7 +1028,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausBoosted.size()):
             itau = tausBoosted.at(i)
             if abs(itau.eta) < 2.3:
-                if itau.mvaid >= 2 :
+                if itau.vsjet >= 2 :
                     s_tauBoosted+=[itau]
 
 

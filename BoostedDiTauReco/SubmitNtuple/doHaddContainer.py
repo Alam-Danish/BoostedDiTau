@@ -12,6 +12,7 @@ if __name__ == "__main__":
     parser.add_argument("--fname", type=str, help="output name. e.g. plotBoostedTauTau")
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
+    #bkg_sample = ['DYto2L-2Jets_MLL-4to10','DYto2L-2Jets_MLL-10to50','DYto2L-2Jets_MLL-50_0J','DYto2L-2Jets_MLL-50_1J','DYto2L-2Jets_MLL-50_2J','WJetsToLNu','Diboson','TT','ST']
     version = args.version
     fname = args.fname
     plotDir = "./output/"+version        
@@ -22,13 +23,15 @@ if __name__ == "__main__":
         era = args.era
         if era == "2016preVFP" or era == "2016postVFP":
             hist = "h_"+fname+"_"+era+"_"+smpl
-        else:
+        elif era == "2017" or era == "2018":
             hist = "h_"+fname+"_"+era+"_Ntuple_"+smpl
+        else:
+            hist = "h_"+fname+"_"+era+"_"+smpl
         
         searchString = hist+"*"
 
-        print('hadd '+searchString.replace("*","_"+version+".root")+' '+plotDir+'/'+searchString)                   
-        os.system('hadd '+searchString.replace("*","_"+version+".root")+' '+plotDir+'/'+searchString)   
+        print('hadd -f '+plotDir+'/'+searchString.replace("*","_"+version+".root")+' '+plotDir+'/'+searchString)                   
+        os.system('hadd -f '+plotDir+'/'+searchString.replace("*","_"+version+".root")+' '+plotDir+'/'+searchString)   
 
         # parts = os.listdir('filelists/'+s+'/UL'+era+'/')
         # print(parts)
@@ -38,6 +41,3 @@ if __name__ == "__main__":
         #     print(p)
         #     print('hadd '+searchString.replace("*","_"+p+"_"+version+".root")+' '+plotDir+'/'+searchString+p+"*")
         #     os.system('hadd '+searchString.replace("*","_"+p+"_"+version+".root")+' '+plotDir+'/'+searchString+p+"*")
-
-
-        

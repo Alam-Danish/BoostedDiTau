@@ -1,4 +1,4 @@
-+ApptainerImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7"
++ApptainerImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel8"
 universe = vanilla
 Executable = run_condor.csh
 Should_Transfer_Files = YES
@@ -7,6 +7,5 @@ Transfer_Input_Files = run_condor.csh
 Output = ./condorOut/condor_$ENV(logFile)_$$([$ENV(offset) + $(Process)]).stdout
 Error = ./condorOut/condor_$ENV(logFile)_$$([$ENV(offset) + $(Process)]).stderr
 Log = ./condorOut/condor_$ENV(logFile)_$$([$ENV(offset) + $(Process)]).Log
-Arguments = plotBoostedTauTau.py $ENV(filelist)_$$([$ENV(offset) + $(Process)]).txt $ENV(OutputPrefix) $ENV(MODE) $ENV(YEAR)
-getenv = True
+Arguments = checkETauTTEnriched.py $ENV(filelist)_$$([$ENV(offset) + $(Process)]).txt $ENV(OutputPrefix) $ENV(MODE) $ENV(YEAR)
 Queue $ENV(NQueue)

@@ -18,9 +18,9 @@ if len(sys.argv)>1:
 #hist = 'h_studyEMuDataMC_Isolated_'
 hist = "h_"+fname+"_"
 
-outputfiles=os.popen("eos root://cmseos.fnal.gov ls /store/user/zhangj/UL2017/ | grep "+hist+Sample+"_").read().split()
+outputfiles=os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2017/ | grep "+hist+Sample+"_").read().split()
 if 'SingleMuon' in Sample:
-    outputfiles=os.popen("eos root://cmseos.fnal.gov ls /store/user/zhangj/UL2017/ | grep "+hist+Sample).read().split()
+    outputfiles=os.popen("eos root://cmseos.fnal.gov ls /store/user/dalam/UL2017/ | grep "+hist+Sample).read().split()
 print(outputfiles)
 
 plotDir = "./output/"+version
@@ -30,7 +30,7 @@ print(isCopy)
 if isCopy:
     for fil in outputfiles:
         print(fil)
-        os.system("xrdcp -f root://cmseos.fnal.gov//store/user/zhangj/UL2017/"+fil+" "+plotDir+"/"+fil)
+        os.system("xrdcp -f root://cmseos.fnal.gov//store/user/dalam/UL2017/"+fil+" "+plotDir+"/"+fil)
 
 searchString = hist+Sample+'_*'
 if 'SingleMuon' in Sample:

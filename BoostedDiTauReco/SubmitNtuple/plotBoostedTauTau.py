@@ -15,21 +15,32 @@ start_time = time.time()
 
 parser = argparse.ArgumentParser(description="Main plotting script for the boosted AToTauTau analysis")
 parser.add_argument("-i", "--inputfile", type=str, required=True, help="Text file with list of ntuple root files")
-parser.add_argument("-s", "--sample", type=str, required=True, help="Type of sample. Accepted: MC, SingleMuon, SingleElectron, MuonEG, TCP")
+parser.add_argument("-s", "--sample", type=str, required=True, help="Type of sample. Accepted: MC, SingleMuon, EGamma, MuonEG, TCP")
 parser.add_argument("--folder", type=str, help="Output folder. Default is /output/")
-parser.add_argument("--year", type=str, required=True, help="Year. Accepted: 2016preVFP, 2016postVFP, 2017, 2018")
+parser.add_argument("--year", type=str, required=True, help="Year. Accepted: 2022, 2022EE, 2023, 2023BPix, 2024")
 args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
 year = args.year
 
 outputTitle = "h_plotBoostedTauTau_"+year
 
-EGsffile = ROOT.TFile("egammaEffi_EGM2D_UL"+year+".root")
+EGsffile = ROOT.TFile("egammaEffi_EGM2D_"+year+".root")
 EGsfhist = EGsffile.Get("EGamma_SF2D")
-mu50SF = correctionlib.CorrectionSet.from_file("Efficiencies_NUM_Mu50_DEN_LooseID_abseta_pt_UL"+year+"_schemaV2.json")
+mu50SF = correctionlib.CorrectionSet.from_file("Efficiencies_NUM_Mu50_DEN_LooseID_abseta_pt_"+year+"_schemaV2.json")
+#etauTrigSF = ROOT.TFile("Baseline1_MmuMiso_EleEta_ElePt_SF_"+year+".root")
+#etauTrigHist = etauTrigSF.Get("SF")
+#etauTrigUncert = etauTrigSF.Get("Uncert")
+
 etauTrigSF = ROOT.TFile("Baseline1_MmuMiso_EleEta_ElePt_SF_"+year+".root")
-etauTrigHist = etauTrigSF.Get("SF")
-etauTrigUncert = etauTrigSF.Get("Uncert")
+etauTrigHist = etauTrigSF.Get("EGamma_SF2D")
+etauTrigUncert = etauTrigSF.Get("totalUnc")
+
+#EGsffile = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/2022_Summer22/electron.json.gz')
+#EG_key = 'Electron-ID-SF'
+#EG_era = '2022Re-recoBCD'
+
+#mu50SF = correctionlib.CorrectionSet.from_file('/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2022_Summer22/muon_Z.json.gz')
+#sf_key = 'NUM_Mu50_or_CascadeMu100_or_HighPtTkMu100_DEN_CutBasedIdGlobalHighPt_and_TkIsoLoose'
 
 isData = 0
 
@@ -37,7 +48,7 @@ if args.sample == "MC":
     isData = 0
     isMuonEGData = False
     isSingleMuonData = False
-    isSingleElectronData = False
+    isEGammaData = False
     isJetHTSample = False
     isSignal = False
 
@@ -45,7 +56,7 @@ elif args.sample == "TCP":
     isData = 0
     isMuonEGData = False
     isSingleMuonData = False
-    isSingleElectronData = False
+    isEGammaData = False
     isJetHTSample = False
     isSignal = True
 
@@ -53,7 +64,7 @@ elif args.sample == "SingleMuon":
     isData = 1
     isMuonEGData = False
     isSingleMuonData = True
-    isSingleElectronData = False
+    isEGammaData = False
     isJetHTSample = False
     isSignal = False
 
@@ -61,15 +72,15 @@ elif args.sample == "MuonEG":
     isData = 1
     isMuonEGData = True    
     isSingleMuonData = False
-    isSingleElectronData = False
+    isEGammaData = False
     isJetHTSample = False
     isSignal = False
 
-elif args.sample == "SingleElectron":
+elif args.sample == "EGamma":
     isData = 1
     isMuonEGData = False
     isSingleMuonData = False
-    isSingleElectronData = True
+    isEGammaData = True
     isJetHTSample = False
     isSignal = False
 else:
@@ -101,7 +112,7 @@ chain2 = ROOT.TChain('tcpTrigNtuples/triggerTree')
 if isData == 0:
 #    chain3 = ROOT.TChain('lumiSummary/lumiTree')
     chain4 = ROOT.TChain('tcpGenNtuples/genTree')
-    chain5 = ROOT.TChain('tcpPrefiring/prefiringTree')
+    #chain5 = ROOT.TChain('tcpPrefiring/prefiringTree')
 chain6 = ROOT.TChain('tcpMetfilter/metfilterTree')
 chain7 = ROOT.TChain('testTrigObj/TriggerObjectTree')
 
@@ -119,7 +130,7 @@ event_cut = {
     'dPhiml': 1.0,
     'dPhimj': 2.0,
     'vismass' : 5.0,
-    'mass' : 12.0
+    'mass' : 10.0
 }
 
 #define histograms here
@@ -130,7 +141,7 @@ def book_histogram():
     h['hWeights'] = ROOT.TH1F ("hWeights", "Weights per events; weight; N", 100, 0, 2)
     h['hGenWeights'] = ROOT.TH1F ("hGenWeights", "Genweights per events; genweight; N", 100, 0, 2)
     h['hPuWeights'] = ROOT.TH1F ("hPuWeights", "PUweights per events; PUweight; N", 100, 0, 2)
-    h['hPrWeights'] = ROOT.TH1F ("hPrWeights", "PreFiringWeights per events; PRweight; N", 100, 0, 2)
+    #h['hPrWeights'] = ROOT.TH1F ("hPrWeights", "PreFiringWeights per events; PRweight; N", 100, 0, 2)
 
     # ---------- Objects ---------- #
 
@@ -281,6 +292,11 @@ def get_etauTrigsf(eta, pt):
 
     binPt = etauTrigHist.GetYaxis().FindBin(pt)
     binEta = etauTrigHist.GetXaxis().FindBin(eta)
+    #pt_clamped  = min(pt,  etauTrigHist.GetYaxis().GetXmax() - 0.01)
+    #eta_clamped = min(max(eta, etauTrigHist.GetXaxis().GetXmin() + 0.01),
+    #                       etauTrigHist.GetXaxis().GetXmax() - 0.01)
+    #binPt  = etauTrigHist.GetYaxis().FindBin(pt_clamped)
+    #binEta = etauTrigHist.GetXaxis().FindBin(eta_clamped)
     trigSF = etauTrigHist.GetBinContent(binEta, binPt)
     uncert = etauTrigUncert.GetBinContent(binEta, binPt)
     trigSF_up = trigSF+uncert
@@ -628,10 +644,10 @@ def ee_channel():
         jet = get_TLorentzVector(s_jet[0])
 
         isJetHTEvent = 0
-        isSingleElectronEvent = 0
+        isEGammaEvent = 0
 
         if ( jet.Pt() > 510 and ( isHT == 1  or isSingleJet500 == 1 ) ) : isJetHTEvent = 1
-        if ( e1.Pt() > 37 and isIsoEle == 1 ) : isSingleElectronEvent = 1
+        if ( e1.Pt() > 37 and isIsoEle == 1 ) : isEGammaEvent = 1
 
         if isJetHTEvent == 1 :             
             if pass_deltaR(e1, e2, jet, 'EE') == 1 :
@@ -842,7 +858,7 @@ def etau_channel(s_tauEclean, tauid="Nominal"):
     if e.Pt() >= 230.0 and isMatchedPhoton == True :
         isPhotonEvent = True
 
-    if ( isData == 0 or isSingleElectronData == True ) and ( isEleJetEvent == True or isPhotonEvent == True ):
+    if ( isData == 0 or isEGammaData == True ) and ( isEleJetEvent == True or isPhotonEvent == True ):
 
         # print(isEleJetEvent, isPhotonEvent)
 
@@ -1060,7 +1076,7 @@ for inputFileName in inputFileNames:
     if isData == 0:
 #        chain3.Add(inputFileName)
         chain4.Add(inputFileName)
-        chain5.Add(inputFileName)
+        #chain5.Add(inputFileName)
 
     chain6.Add(inputFileName)
     chain7.Add(inputFileName)
@@ -1072,7 +1088,7 @@ fchain.AddFriend(chain2)
 if isData == 0:
 #    fchain.AddFriend(chain3)
     fchain.AddFriend(chain4)
-    fchain.AddFriend(chain5)
+    #fchain.AddFriend(chain5)
     
 fchain.AddFriend(chain6)
 fchain.AddFriend(chain7)
@@ -1127,15 +1143,16 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     if isData == 0 :
         genweight = fchain.GetLeaf('genWeight').GetValue()
         puweight = fchain.GetLeaf('puWeight').GetValue()
-        prweight = fchain.GetLeaf('prefiringWeight').GetValue()
-        tauidsf = 0.97
+        #prweight = fchain.GetLeaf('prefiringWeight').GetValue()
+        tauidsf = 1
     else :
         genweight = 1
         puweight = 1
-        prweight = 1
+        #prweight = 1
         tauidsf = 1
 
-    weight = genweight*puweight*prweight*tauidsf
+    #weight = genweight*puweight*prweight*tauidsf
+    weight = genweight*puweight*tauidsf
 
     h['hEvents'].Fill(0.5, 1)
     h['hEvents'].Fill(1.5, genweight)
@@ -1143,7 +1160,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     h['hWeights'].Fill(weight)
     h['hPuWeights'].Fill(puweight)
     h['hGenWeights'].Fill(genweight)
-    h['hPrWeights'].Fill(prweight)
+    #h['hPrWeights'].Fill(prweight)
 
     #-------------- Gen particles -----------#
 
@@ -1192,7 +1209,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
             if iobj.isJetLeg == 1 : tOisEleJet+=[iobj]
             if iobj.isMu == 1 : tOisMu+=[iobj]
             if iobj.isIsoMu == 1 : tOisIsoMu +=[iobj]
-            if iobj.isSingleJet == 1 : tOisSingleJet+=[iobj]
+            if iobj.isSingleJet500 == 1 : tOisSingleJet+=[iobj]
             if iobj.isMuonEGmu == 1 : tOisMuonEGmu+=[iobj]
             if iobj.isMuonEGe == 1 : tOisMuonEGe+=[iobj]
             if iobj.isPhoton == 1 : tOisPhoton+=[iobj]
@@ -1204,9 +1221,10 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     #-------------- Trigger definitions -----------#
 
     isHT = fchain.GetLeaf('isHT').GetValue()
-    isHTMHT = fchain.GetLeaf('isHTMHT').GetValue()
+    #isHTMHT = fchain.GetLeaf('isHTMHT').GetValue()
     isMu = fchain.GetLeaf('isMu').GetValue()
     isIsoMu = fchain.GetLeaf('isIsoMu').GetValue()
+    isIsoMu24 = fchain.GetLeaf('isIsoMu24').GetValue()
     isIsoMuTau = fchain.GetLeaf('isIsoMuTau').GetValue()
     isIsoEle = fchain.GetLeaf('isIsoEle').GetValue()
     isEleTau = fchain.GetLeaf('isEleTau').GetValue()
@@ -1216,16 +1234,20 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
     isEleJet = fchain.GetLeaf('isEleJet').GetValue()
     isSingleJet500 = fchain.GetLeaf('isSingleJet500').GetValue()
     isSingleJet450 = fchain.GetLeaf('isSingleJet450').GetValue()
+    isSingleJet550 = fchain.GetLeaf('isSingleJet550').GetValue()
+    isDisplacedDiTau = fchain.GetLeaf('isDisplacedDiTau').GetValue()
 
     #------------ MET Filter --------------#
 
     pvFilter = fchain.GetLeaf('primaryvertexfilter').GetValue()
     haloFilter = fchain.GetLeaf('beamhalofilter').GetValue()
-    hbheFilter = fchain.GetLeaf('hbhefilter').GetValue()
-    hbheIsoFilter = fchain.GetLeaf('hbheisofilter').GetValue()
+    #hbheFilter = fchain.GetLeaf('hbhefilter').GetValue()
+    #hbheIsoFilter = fchain.GetLeaf('hbheisofilter').GetValue()
     eeBadSCFilter = fchain.GetLeaf('eebadscfilter').GetValue()
     ecalTPFilter = fchain.GetLeaf('ecaltpfilter').GetValue()
     badMuonFilter = fchain.GetLeaf('badpfmuonfilter').GetValue()
+    badMuonDzFilter = fchain.GetLeaf('badpfmuonDzfilter').GetValue()
+    hfNoisyFilter   = fchain.GetLeaf('hfnoisyhitsfilter').GetValue()
     ecalBadCalFilter = fchain.GetLeaf('ecalbadcalfilter').GetValue()
 
     #------------ Objects loop ------------#
@@ -1246,12 +1268,12 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
                     h['hDeepjet'].Fill(ijet.deepjet, weight)
                     s_jet+=[ijet]
                     iht = iht + ijet.pt
-                    if ijet.deepjet >= 0.7476:
+                    if ijet.deepjet >= 0.7183:
                         h['hBJetPt'].Fill(ijet.pt, weight) 
                         s_bjet+=[ijet]
-                    if ijet.deepjet > 0.3040:
+                    if ijet.deepjet > 0.3086:
                         s_bjet_med+=[ijet]
-                    if ijet.deepjet > 0.0532:
+                    if ijet.deepjet > 0.0583:
                         s_bjet_loose+=[ijet]
 
     s_muon = []
@@ -1296,7 +1318,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausUnCleaned.size()):
             itau = tausUnCleaned.at(i)
             if abs(itau.eta) < 2.3 and itau.pt >= 20.0:
-                if itau.mvaid >= 4:
+                if itau.vsjet >= 4:
                     s_tauUncleanNom+=[itau]
                         
     s_tauEcleanNom = []
@@ -1310,16 +1332,16 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausECleaned.size()):
             itau = tausECleaned.at(i)
             if abs(itau.eta) < 2.3 and itau.pt >= 20.0:
-                if itau.mvaid >=1 :
+                if itau.vsjet >=1 :
                     s_tauEclean+=[itau]
-                if itau.mvaid >= 4:
+                if itau.vsjet >= 4:
                     h['hTauECleanedPt'].Fill(itau.pt, weight)
                     s_tauEcleanNom+=[itau]
-                if itau.mvaid < 4 :
+                if itau.vsjet < 4 :
                     s_tauEcleanAltnoID+=[itau]
-                    if itau.mvaid >= 1 : s_tauEcleanAlt+=[itau]
-                    if itau.mvaid >= 2 : s_tauEcleanAltVLoose+=[itau]
-                    if itau.mvaid >= 3 : s_tauEcleanAltLoose+=[itau]
+                    if itau.vsjet >= 1 : s_tauEcleanAlt+=[itau]
+                    if itau.vsjet >= 2 : s_tauEcleanAltVLoose+=[itau]
+                    if itau.vsjet >= 3 : s_tauEcleanAltLoose+=[itau]
                                             
 
     s_tauMucleanNom = []
@@ -1329,10 +1351,10 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausMCleaned.size()):
             itau = tausMCleaned.at(i)
             if abs(itau.eta) < 2.3 and itau.pt >= 20.0:
-                if itau.mvaid >= 4 :
+                if itau.vsjet >= 4 :
                     h['hTauMuCleanedPt'].Fill(itau.pt, weight)
                     s_tauMucleanNom+=[itau]
-                if itau.mvaid >= 1 and itau.mvaid < 4 :
+                if itau.vsjet >= 1 and itau.vsjet < 4 :
                     s_tauMucleanAlt+=[itau]
 
     s_tauBoosted = []
@@ -1340,7 +1362,7 @@ for iev in range(fchain.GetEntries()): # Be careful!!!
         for i in range(tausBoosted.size()):
             itau = tausBoosted.at(i)
             if abs(itau.eta) < 2.3:
-                if itau.mvaid >= 2 :
+                if itau.vsjet >= 2 :
                     s_tauBoosted+=[itau]
 
     # ---------- Event Selections --------- #
