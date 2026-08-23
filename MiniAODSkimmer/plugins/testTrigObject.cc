@@ -182,7 +182,7 @@ void TCPTrigObjectAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSe
       pathNamesAll[h].find("HLT_IsoMu24_eta2p1_v") == std::string::npos &&
       pathNamesAll[h].find("HLT_IsoMu20_eta2p1_LooseDeepTauPFTauHPS27_eta2p1_CrossL1_v") == std::string::npos &&
       pathNamesAll[h].find("HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS180_eta2p1_v") == std::string::npos &&
-      pathNamesAll[h].find("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_v") == std::string::npos &&
+      //pathNamesAll[h].find("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_v") == std::string::npos &&
       pathNamesAll[h].find("HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_v") == std::string::npos &&
       pathNamesAll[h].find("HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS35_L2NN_eta2p1_CrossL1_v") == std::string::npos &&
       pathNamesAll[h].find("HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_CrossL1_v") == std::string::npos &&
@@ -269,7 +269,7 @@ void TCPTrigObjectAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSe
       if (pathNamesAll[h].find("HLT_IsoMu24_eta2p1_v") != std::string::npos                                              ||
           pathNamesAll[h].find("HLT_IsoMu20_eta2p1_LooseDeepTauPFTauHPS27_eta2p1_CrossL1_v") != std::string::npos        ||
           pathNamesAll[h].find("HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS180_eta2p1_v") != std::string::npos               ||
-          pathNamesAll[h].find("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_v") != std::string::npos ||
+          //pathNamesAll[h].find("HLT_IsoMu20_eta2p1_TightChargedIsoPFTauHPS27_eta2p1_TightID_CrossL1_v") != std::string::npos ||
           pathNamesAll[h].find("HLT_IsoMu24_eta2p1_LooseDeepTauPFTauHPS30_eta2p1_CrossL1_v") != std::string::npos        ||
           pathNamesAll[h].find("HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS35_L2NN_eta2p1_CrossL1_v") != std::string::npos  ||
           pathNamesAll[h].find("HLT_IsoMu24_eta2p1_MediumDeepTauPFTauHPS30_L2NN_eta2p1_CrossL1_v") != std::string::npos  ||

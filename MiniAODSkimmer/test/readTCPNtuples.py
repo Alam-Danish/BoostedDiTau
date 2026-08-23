@@ -2,7 +2,8 @@ import ROOT
 
 ROOT.gInterpreter.Declare('#include "../interface/JetInfoDS.h"')
 
-inputFile = 'TCPNtuple.root'
+#inputFile = 'TCPNtuple.root'
+inputFile = 'TCPNtuple_v1.root'
 
 jets = ROOT.JetInfoDS()
 

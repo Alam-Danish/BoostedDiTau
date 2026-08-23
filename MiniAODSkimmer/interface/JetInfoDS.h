@@ -6,7 +6,8 @@
 struct JetInfo {
   float pt, eta, phi, mass;
   float ptuncor; 
-  float deepcsv; 
+  float deepcsv;
+  float pNet; 
   float deepjet;
   int id; //jetID 1, jetID + lept-veto 2
   int puid; // fail 0, loose 1, medium 2, tight 3

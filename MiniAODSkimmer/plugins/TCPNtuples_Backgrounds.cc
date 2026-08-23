@@ -5,16 +5,17 @@ TCPNtuples_Backgrounds::TCPNtuples_Backgrounds(const edm::ParameterSet& iConfig)
   Jets_(consumes< vector<pat::Jet> > (iConfig.getParameter<edm::InputTag>("JetCollection"))),
   Muons_(consumes< vector<pat::Muon> > (iConfig.getParameter<edm::InputTag>("MuonCollection"))),
   Electrons_(consumes< vector<pat::Electron> > (iConfig.getParameter<edm::InputTag>("ElectronCollection"))),
-  //  LowPtElectrons_(consumes< vector<pat::Electron> > (iConfig.getParameter<edm::InputTag>("LowPtElectronCollection"))),
-  //  idScoreCut_(iConfig.getParameter<string>("LowPtEIdScoreCut")),
+  //LowPtElectrons_(consumes< vector<pat::Electron> > (iConfig.getParameter<edm::InputTag>("LowPtElectronCollection"))),
+  //idScoreCut_(iConfig.getParameter<string>("LowPtEIdScoreCut")),
   Vertices_(consumes< vector<reco::Vertex> > (iConfig.getParameter<edm::InputTag>("VertexCollection"))),
   rhoTag_(consumes<double>(iConfig.getParameter<edm::InputTag>("rhoTag"))),
   effectiveAreas_((iConfig.getParameter<edm::FileInPath>("effAreasConfigFile")).fullPath()),
   TausUnCleaned_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("UnCleanedTauCollection"))),
   TausECleaned_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("ECleanedTauCollection"))),
-//  TausLowPtECleaned_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("LowPtECleanedTauCollection"))),
+  //TausLowPtECleaned_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("LowPtECleanedTauCollection"))),
   TausMCleaned_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("MCleanedTauCollection"))),
-  TausBoosted_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("BoostedTauCollection"))) {
+  TausBoosted_(consumes< vector<pat::Tau> > (iConfig.getParameter<edm::InputTag>("BoostedTauCollection")))
+{
   usesResource(TFileService::kSharedResource);
 }
 
@@ -38,20 +39,20 @@ void TCPNtuples_Backgrounds::beginJob() {
   jetInfoData = new JetInfoDS();
   muonInfoData = new MuonInfoDS();
   electronInfoData = new ElectronInfoDS();
-  //  lowPtElectronInfoData = new ElectronInfoDS();
+  //lowPtElectronInfoData = new ElectronInfoDS();
   tauInfoDataUnCleaned = new TauInfoDS();
   tauInfoDataECleaned = new TauInfoDS();
-  //  tauInfoDataLowPtECleaned = new TauInfoDS();
+  //tauInfoDataLowPtECleaned = new TauInfoDS();
   tauInfoDataMCleaned = new TauInfoDS();
   tauInfoDataBoosted = new TauInfoDS();
   
   tree->Branch("Jets", "JetInfoDS", &jetInfoData);
   tree->Branch("Muons", "MuonInfoDS", &muonInfoData);
   tree->Branch("Electrons", "ElectronInfoDS", &electronInfoData);
-  //  tree->Branch("LowPtElectrons", "ElectronInfoDS", &lowPtElectronInfoData);
+  //tree->Branch("LowPtElectrons", "ElectronInfoDS", &lowPtElectronInfoData);
   tree->Branch("TausUnCleaned", "TauInfoDS", &tauInfoDataUnCleaned);
   tree->Branch("TausECleaned", "TauInfoDS", &tauInfoDataECleaned);
-  //  tree->Branch("TausLowPtECleaned", "TauInfoDS", &tauInfoDataLowPtECleaned);
+  //tree->Branch("TausLowPtECleaned", "TauInfoDS", &tauInfoDataLowPtECleaned);
   tree->Branch("TausMCleaned", "TauInfoDS", &tauInfoDataMCleaned);
   tree->Branch("TausBoosted", "TauInfoDS", &tauInfoDataBoosted);
   tree->Branch("Mets", &metInfo_, "pt/F:phi/F:eta/F:mass/F:ptUncor/F:phiUncor/F:ptJECUp/F:phiJECUp/F:ptJERUp/F:phiJERUp/F:ptUncUp/F:phiUncUp/F:ptJECDown/F:phiJECDown/F:ptJERDown/F:phiJERDown/F:ptUncDown/F:phiUncDown/F:covXX/F:covXY/F:covYY/F");
@@ -76,7 +77,7 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
   if (Jets.size() > 0) {
     for (unsigned int i = 0; i < Jets.size(); ++i) {
       auto jet = Jets[i];
-      if (jet.pt() < 20 || jet.eta() > 2.5) continue;
+      if (jet.pt() < 20 || fabs(jet.eta()) > 2.5) continue;
       float NHF  = jet.neutralHadronEnergyFraction();
       float NEMF = jet.neutralEmEnergyFraction();
       float CHF  = jet.chargedHadronEnergyFraction();
@@ -94,7 +95,8 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
 	j.phi = jet.phi();
 	j.mass = jet.mass();
 	j.ptuncor = jet.correctedP4(0).Pt();
-	j.deepcsv = jet.bDiscriminator("pfDeepCSVJetTags:probb") + jet.bDiscriminator("pfDeepCSVJetTags:probbb");
+	//j.deepcsv = jet.bDiscriminator("pfDeepCSVJetTags:probb") + jet.bDiscriminator("pfDeepCSVJetTags:probbb");
+  j.deepcsv = jet.bDiscriminator("pfParticleNetFromMiniAODAK4PuppiCentralDiscriminatorsJetTags:BvsAll");
 	j.deepjet = jet.bDiscriminator("pfDeepFlavourJetTags:probb") + jet.bDiscriminator("pfDeepFlavourJetTags:probbb") + jet.bDiscriminator("pfDeepFlavourJetTags:problepb");
 	j.jetflavour = jet.hadronFlavour();
 	if (jetIDLepVeto) j.id = 2;
@@ -116,6 +118,8 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
   edm::Handle< std::vector<reco::Vertex> > VerticesHandle;
   iEvent.getByToken(Vertices_, VerticesHandle);
   auto Vertices = *VerticesHandle;
+  if (Vertices.empty()) { tree->Fill(); return; }
+  //const reco::Vertex& PrimaryVertex = Vertices[0];
   auto PrimaryVertex = Vertices[0];
 
   if (Muons.size() > 0) {
@@ -134,6 +138,8 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
       else m.id = 1;
       m.dxy = muon.muonBestTrack()->dxy();
       m.dz = muon.muonBestTrack()->dz();
+      //m.trigmatch = muon.triggered("HLT_Mu27_*");
+      //m.trigmatch = muon.triggered("HLT_IsoMu24_v*");
       muonInfoData->push_back(m);
     }
   }
@@ -193,64 +199,70 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
 
       // ========= select electrons in different cut-based ID accordingly ==========
       if (fabs(eleEta) <= 1.479) {
-	isLoose = (sigmaIetaIeta < 0.0112) &&
-	  (dEtaSeed < 0.00377) &&
-	  (dPhiIn < 0.0884) &&
-	  (HoE < 0.05 + 1.16/energy + 0.0324*rho/energy) &&
-	  (eInverseMinusPInverse < 0.193) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isLooseRelIso = (relIsoWithEffectiveArea < 0.112 + 0.506/elePt);
-	
-	isMedium = (sigmaIetaIeta < 0.0106) &&
-	  (dEtaSeed < 0.0032) &&
-	  (dPhiIn < 0.0547) &&
-	  (HoE < 0.046 + 1.16/energy + 0.0324*rho/energy) &&
-	  (eInverseMinusPInverse < 0.184) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isMediumRelIso = (relIsoWithEffectiveArea < 0.0478 + 0.506/elePt);
-
-	isTight = (sigmaIetaIeta < 0.0104) &&
-	  (dEtaSeed < 0.00255) &&
-	  (dPhiIn < 0.022) &&
-	  (HoE < 0.026 + 1.15/energy + 0.0324*rho/energy) &&
-	  (eInverseMinusPInverse < 0.159) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isTightRelIso = (relIsoWithEffectiveArea < 0.0287 + 0.506/elePt);
+        isLoose = (sigmaIetaIeta < 0.0112) &&
+        (dEtaSeed < 0.00377) &&
+        (dPhiIn < 0.0884) &&
+        (HoE < 0.05 + 1.16/energy + 0.0324*rho/energy) &&
+        (eInverseMinusPInverse < 0.193) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isLooseRelIso = (relIsoWithEffectiveArea < 0.112 + 0.506/elePt);
+        
+        isMedium = (sigmaIetaIeta < 0.0106) &&
+        (dEtaSeed < 0.0032) &&
+        (dPhiIn < 0.0547) &&
+        (HoE < 0.046 + 1.16/energy + 0.0324*rho/energy) &&
+        (eInverseMinusPInverse < 0.184) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isMediumRelIso = (relIsoWithEffectiveArea < 0.0478 + 0.506/elePt);
+        
+        isTight = (sigmaIetaIeta < 0.0104) &&
+        (dEtaSeed < 0.00255) &&
+        (dPhiIn < 0.022) &&
+        (HoE < 0.026 + 1.15/energy + 0.0324*rho/energy) &&
+        (eInverseMinusPInverse < 0.159) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isTightRelIso = (relIsoWithEffectiveArea < 0.0287 + 0.506/elePt);
       }// endif (fabs(eleEta) <= 1.479)
 
       else {
-	isLoose = (sigmaIetaIeta < 0.0425) &&
-	  (dEtaSeed < 0.00674) &&
-	  (dPhiIn < 0.169) &&
-	  (HoE < 0.0441 + 2.54/energy + 0.183*rho/energy) &&
-	  (eInverseMinusPInverse < 0.111) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isLooseRelIso = (relIsoWithEffectiveArea < 0.108 + 0.963/elePt);
-
-	isMedium = (sigmaIetaIeta < 0.0387) &&
-	  (dEtaSeed < 0.00632) &&
-	  (dPhiIn < 0.0394) &&
-	  (HoE < 0.0275 + 2.52/energy + 0.183*rho/energy) &&
-	  (eInverseMinusPInverse < 0.0721) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isMediumRelIso = (relIsoWithEffectiveArea < 0.0658 + 0.963/elePt);
-	
-	isTight = (sigmaIetaIeta < 0.0353) &&
-	  (dEtaSeed < 0.00501) &&
-	  (dPhiIn < 0.0236) &&
-	  (HoE < 0.0188 + 2.06/energy + 0.183*rho/energy) &&
-	  (eInverseMinusPInverse < 0.0197) &&
-	  (mHits <= 1) &&
-	  (isPassConVeto == true);
-	isTightRelIso = (relIsoWithEffectiveArea < 0.0445 + 0.963/elePt);
+        isLoose = (sigmaIetaIeta < 0.0425) &&
+        (dEtaSeed < 0.00674) &&
+        (dPhiIn < 0.169) &&
+        (HoE < 0.0441 + 2.54/energy + 0.183*rho/energy) &&
+        (eInverseMinusPInverse < 0.111) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isLooseRelIso = (relIsoWithEffectiveArea < 0.108 + 0.963/elePt);
+        
+        isMedium = (sigmaIetaIeta < 0.0387) &&
+        (dEtaSeed < 0.00632) &&
+        (dPhiIn < 0.0394) &&
+        (HoE < 0.0275 + 2.52/energy + 0.183*rho/energy) &&
+        (eInverseMinusPInverse < 0.0721) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isMediumRelIso = (relIsoWithEffectiveArea < 0.0658 + 0.963/elePt);
+        
+        isTight = (sigmaIetaIeta < 0.0353) &&
+        (dEtaSeed < 0.00501) &&
+        (dPhiIn < 0.0236) &&
+        (HoE < 0.0188 + 2.06/energy + 0.183*rho/energy) &&
+        (eInverseMinusPInverse < 0.0197) &&
+        (mHits <= 1) &&
+        (isPassConVeto == true);
+        
+        isTightRelIso = (relIsoWithEffectiveArea < 0.0445 + 0.963/elePt);
       } // end else (fabs(eleEta) > 1.479)
 
-      if (electron.pt() < 7 || electron.eta() > 2.5 || !isLoose) continue;
+      if (electron.pt() < 7 || fabs(electron.eta()) > 2.5 || !isLoose) continue;
       ElectronInfo e;
       e.pt = electron.pt();
       e.eta = electron.eta();
@@ -258,22 +270,24 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
       e.mass = electron.mass();
       e.charge = electron.charge();
       if (isTight) {
-	e.id = 3;
+        e.id = 3;
       } else if (isMedium) {
-	e.id = 2;
+        e.id = 2;
       } else {
-	e.id = 1;
+        e.id = 1;
       }
+
       if (isTightRelIso) {
-	e.iso = 3;
+        e.iso = 3;
       } else if (isMediumRelIso) {
-	e.iso = 2;
+        e.iso = 2;
       } else if (isLooseRelIso) {
-	e.iso = 1;
+        e.iso = 1;
       } else {
-	e.iso = 0;
+        e.iso = 0;
       }
-      //      e.lowptid = -9999;
+      
+      //e.lowptid = -9999;
       //std::cout << e.iso << '\n';
       math::XYZPointF p1 = electron.trackPositionAtVtx();
       math::XYZPoint p2 = PrimaryVertex.position();
@@ -285,13 +299,13 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
     }
   }
 
-  //  edm::Handle< std::vector<pat::Electron> > LowPtElectronsHandle;
-  //  iEvent.getByToken(LowPtElectrons_, LowPtElectronsHandle);
-  //  auto LowPtElectrons = *LowPtElectronsHandle;
+  //edm::Handle< std::vector<pat::Electron> > LowPtElectronsHandle;
+  //iEvent.getByToken(LowPtElectrons_, LowPtElectronsHandle);
+  //auto LowPtElectrons = *LowPtElectronsHandle;
 
-  // if (LowPtElectrons.size() > 0) {
-  //   for (unsigned int i = 0; i < LowPtElectrons.size(); ++i) {
-  //     auto electron = LowPtElectrons[i];
+  //if (LowPtElectrons.size() > 0) {
+  // for (unsigned int i = 0; i < LowPtElectrons.size(); ++i) {
+  // auto electron = LowPtElectrons[i];
       
   //     if ( electron.pt() < 1 || electron.eta() > 2.5 || electron.electronID("ID") < std::stof(idScoreCut_) ) continue;
   //     ElectronInfo e;
@@ -333,10 +347,10 @@ void TCPNtuples_Backgrounds::analyze(const edm::Event& iEvent, const edm::EventS
   auto TausBoosted = *TausBoostedHandle;
   fillTauInfoDS(TausBoosted, 4);
 
-  // edm::Handle< std::vector<pat::Tau> > TausLowPtECleanedHandle;
-  // iEvent.getByToken(TausLowPtECleaned_, TausLowPtECleanedHandle);
-  // auto TausLowPtECleaned = *TausLowPtECleanedHandle;
-  // fillTauInfoDS(TausLowPtECleaned, 5);
+  //edm::Handle< std::vector<pat::Tau> > TausLowPtECleanedHandle;
+  //iEvent.getByToken(TausLowPtECleaned_, TausLowPtECleanedHandle);
+  //auto TausLowPtECleaned = *TausLowPtECleanedHandle;
+  //fillTauInfoDS(TausLowPtECleaned, 5);
 
   edm::Handle< std::vector<pat::MET> > METHandle;
   iEvent.getByToken(MET_, METHandle);
@@ -372,7 +386,8 @@ void TCPNtuples_Backgrounds::fillTauInfoDS(const std::vector<pat::Tau>& Taus, in
     for (unsigned int i = 0; i < Taus.size(); ++i) {
       auto tau = Taus[i];
       if (tau.pt() < 10 || tau.eta() > 2.3) continue; //decayModeFinding > 0.5 by default
-      if (!tau.tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017") and !tau.tauID("byVVVLooseDeepTau2017v2p1VSjet")) continue;
+      //if (!tau.tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017") and !tau.tauID("byVVVLooseDeepTau2017v2p1VSjet")) continue;
+      if (!tau.tauID("byVVVLooseDeepTau2018v2p5VSjet") and !tau.tauID("byVVVLooseDeepTau2018v2p5VSe") and !tau.tauID("byVLooseDeepTau2018v2p5VSmu")) continue;
       TauInfo t;
       t.pt = tau.pt();
       t.eta = tau.eta();
@@ -381,7 +396,10 @@ void TCPNtuples_Backgrounds::fillTauInfoDS(const std::vector<pat::Tau>& Taus, in
       t.charge = tau.charge();
       t.decaymode = tau.decayMode();
       t.mvaidraw = tau.tauID("byIsolationMVArun2017v2DBoldDMwLTraw2017");
-      t.deepidraw = tau.tauID("byDeepTau2017v2p1VSeraw");
+      //t.deepidraw = tau.tauID("byDeepTau2017v2p1VSeraw");
+      t.vsjetraw = tau.tauID("byDeepTau2018v2p5VSjetraw");
+      t.vseraw   = tau.tauID("byDeepTau2018v2p5VSeraw");
+      t.vsmuraw = tau.tauID("byDeepTau2018v2p5VSmuraw");
       //t.dxy = abs(tau.leadChargedHadrCand().get()->dxy(PV));
       //t.dz = abs(tau.leadChargedHadrCand().get()->dz(PV));
       if (tau.tauID("byVVTightIsolationMVArun2017v2DBoldDMwLT2017")) t.mvaid = 7;
@@ -392,7 +410,8 @@ void TCPNtuples_Backgrounds::fillTauInfoDS(const std::vector<pat::Tau>& Taus, in
       else if (tau.tauID("byVLooseIsolationMVArun2017v2DBoldDMwLT2017")) t.mvaid = 2;
       else if (tau.tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017")) t.mvaid = 1;
       else t.mvaid = -1;
-      if (tau.tauID("byVVTightDeepTau2017v2p1VSjet")) t.deepid = 7;
+      
+      /*if (tau.tauID("byVVTightDeepTau2017v2p1VSjet")) t.deepid = 7;
       else if (tau.tauID("byVTightDeepTau2017v2p1VSjet")) t.deepid = 6;
       else if (tau.tauID("byTightDeepTau2017v2p1VSjet")) t.deepid = 5;
       else if (tau.tauID("byMediumDeepTau2017v2p1VSjet")) t.deepid = 4;
@@ -400,12 +419,39 @@ void TCPNtuples_Backgrounds::fillTauInfoDS(const std::vector<pat::Tau>& Taus, in
       else if (tau.tauID("byVLooseDeepTau2017v2p1VSjet")) t.deepid = 2;
       else if (tau.tauID("byVVLooseDeepTau2017v2p1VSjet")) t.deepid = 1;
       else if (tau.tauID("byVVVLooseDeepTau2017v2p1VSjet")) t.deepid = 0;
-      else t.deepid = -1;
+      else t.deepid = -1;*/
+
+      if      (tau.tauID("byVVTightDeepTau2018v2p5VSjet"))  t.vsjet = 7;
+      else if (tau.tauID("byVTightDeepTau2018v2p5VSjet"))   t.vsjet = 6;
+      else if (tau.tauID("byTightDeepTau2018v2p5VSjet"))    t.vsjet = 5;
+      else if (tau.tauID("byMediumDeepTau2018v2p5VSjet"))   t.vsjet = 4;
+      else if (tau.tauID("byLooseDeepTau2018v2p5VSjet"))    t.vsjet = 3;
+      else if (tau.tauID("byVLooseDeepTau2018v2p5VSjet"))   t.vsjet = 2;
+      else if (tau.tauID("byVVLooseDeepTau2018v2p5VSjet"))  t.vsjet = 1;
+      else if (tau.tauID("byVVVLooseDeepTau2018v2p5VSjet")) t.vsjet = 0;
+      else t.vsjet = -1;
+
+      if      (tau.tauID("byVVTightDeepTau2018v2p5VSe"))  t.vse = 7;
+      else if (tau.tauID("byVTightDeepTau2018v2p5VSe"))   t.vse = 6;
+      else if (tau.tauID("byTightDeepTau2018v2p5VSe"))    t.vse = 5;
+      else if (tau.tauID("byMediumDeepTau2018v2p5VSe"))   t.vse = 4;
+      else if (tau.tauID("byLooseDeepTau2018v2p5VSe"))    t.vse = 3;
+      else if (tau.tauID("byVLooseDeepTau2018v2p5VSe"))   t.vse = 2;
+      else if (tau.tauID("byVVLooseDeepTau2018v2p5VSe"))  t.vse = 1;
+      else if (tau.tauID("byVVVLooseDeepTau2018v2p5VSe")) t.vse = 0;
+      else t.vse = -1;
+      
+      if      (tau.tauID("byTightDeepTau2018v2p5VSmu"))  t.vsmu = 3;
+      else if (tau.tauID("byMediumDeepTau2018v2p5VSmu")) t.vsmu = 2;
+      else if (tau.tauID("byLooseDeepTau2018v2p5VSmu"))  t.vsmu = 1;
+      else if (tau.tauID("byVLooseDeepTau2018v2p5VSmu")) t.vsmu = 0;
+      else t.vsmu = -1;
+
       if (whichColl == 1) tauInfoDataUnCleaned->push_back(t);
       if (whichColl == 2) tauInfoDataECleaned->push_back(t);
       if (whichColl == 3) tauInfoDataMCleaned->push_back(t);
       if (whichColl == 4) tauInfoDataBoosted->push_back(t);
-      //      if (whichColl == 5) tauInfoDataLowPtECleaned->push_back(t);
+      //if (whichColl == 5) tauInfoDataLowPtECleaned->push_back(t);
     }
   }
 }

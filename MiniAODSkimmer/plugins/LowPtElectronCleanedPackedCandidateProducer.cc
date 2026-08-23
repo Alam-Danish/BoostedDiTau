@@ -114,7 +114,7 @@ LowPtElectronCleanedPackedCandidateProducer::produce(edm::Event& iEvent, const e
     float drMin=9999;
     for(size_t i = 0; i < packedCands->size(); ++i){
       pat::PackedCandidate cand = (*packedCands)[i];
-      if (cand.pdgId()==11){
+      if (abs(cand.pdgId())==11){
         //float dPhi=ele.phi()-cand.phi();
 	float dPhi = reco::deltaPhi(ele.phi(), cand.phi());
         float dEta=ele.eta()-cand.eta();

@@ -42,77 +42,6 @@ void fastMTTNtuples::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
   lumiblock_ = LumiBlock;
   event_ = Event;
 
-  edm::Handle< std::vector<pat::Jet> > JetsHandle;
-  iEvent.getByToken(Jets_, JetsHandle);
-  auto Jets = *JetsHandle;
-
-  std::vector<pat::Jet> selected_jets;
-  if (Jets.size() > 0) {
-    for (unsigned int i = 0; i < Jets.size(); ++i) {
-      auto jet = Jets[i];
-      if (jet.pt() < 100 || jet.eta() > 2.5) continue;
-      float NHF  = jet.neutralHadronEnergyFraction();
-      float NEMF = jet.neutralEmEnergyFraction();
-      float CHF  = jet.chargedHadronEnergyFraction();
-      float MUF  = jet.muonEnergyFraction();
-      float CEMF = jet.chargedEmEnergyFraction();
-      auto NumConst = jet.chargedMultiplicity()+jet.neutralMultiplicity();
-      //auto NumNeutralParticles = jet.neutralMultiplicity();
-      auto CHM = jet.chargedMultiplicity();
-      bool jetID = CHM>0 && CHF>0 && NumConst>1 && NEMF<0.9 && NHF < 0.9;
-      bool jetIDLepVeto = CEMF<0.8 && CHM>0 && CHF>0 && NumConst>1 && NEMF<0.9 && MUF <0.8 && NHF < 0.9;
-      if (jetID) {
-	selected_jets.push_back(jet);
-      }
-    }
-  }
-
-  edm::Handle< std::vector<pat::Muon> > MuonsHandle;
-  iEvent.getByToken(Muons_, MuonsHandle);
-  auto Muons = *MuonsHandle;
-
-
-  std::vector<pat::Muon> selected_muons;
-  if (Muons.size() > 0) {
-    for (unsigned int i = 0; i < Muons.size(); ++i) {
-      auto muon = Muons[i];
-      if (muon.pt() < 3 || muon.eta() > 2.4 || !muon.isLooseMuon()) continue;
-      selected_muons.push_back(muon);
-    }
-  }
-
-
-  edm::Handle< std::vector<pat::Tau> > TausMCleanedHandle;
-  iEvent.getByToken(TausMCleaned_, TausMCleanedHandle);
-  auto Taus = *TausMCleanedHandle;
-
-  std::vector<pat::Tau> selected_taus;
-  if (Taus.size()>0) {
-    for (unsigned int i = 0; i < Taus.size(); ++i) {
-      auto tau = Taus[i];
-      if (tau.pt() < 10 || tau.eta() > 2.3) continue;
-      if (!tau.tauID("byVLooseIsolationMVArun2017v2DBoldDMwLT2017")) continue;
-      selected_taus.push_back(tau);
-    }
-  }
-  
-
-  if (selected_jets.size()>0 && selected_muons.size()>0 && selected_taus.size()>0) {
-    if (deltaR(selected_jets[0].phi(), selected_taus[0].phi(), selected_jets[0].eta(), selected_taus[0].eta()) > 0.8  && \
-	deltaR(selected_jets[0].phi(), selected_muons[0].phi(), selected_jets[0].eta(), selected_muons[0].eta()) > 0.8  && \
-	deltaR(selected_muons[0].phi(), selected_taus[0].phi(), selected_muons[0].eta(), selected_taus[0].eta())< 0.4  && \
-	deltaR(selected_muons[0].phi(), selected_taus[0].phi(), selected_muons[0].eta(), selected_taus[0].eta())> 0.01 ) {
-      evtInfo_.mu_pt = selected_muons[0].pt();
-      evtInfo_.tau_pt = selected_taus[0].pt();
-      evtInfo_.mu_eta = selected_muons[0].eta();
-      evtInfo_.tau_eta = selected_taus[0].eta();
-      evtInfo_.mu_phi = selected_muons[0].phi();
-      evtInfo_.tau_phi = selected_taus[0].phi();
-      evtInfo_.mu_m = selected_muons[0].mass();
-      evtInfo_.tau_m = selected_taus[0].mass();
-    }													    
-  }
-  
   edm::Handle< std::vector<pat::MET> > METHandle;
   iEvent.getByToken(MET_, METHandle);
   auto met = METHandle->front();
@@ -136,12 +65,123 @@ void fastMTTNtuples::analyze(const edm::Event& iEvent, const edm::EventSetup& iS
   evtInfo_.covXX = met.getSignificanceMatrix().At(0,0);
   evtInfo_.covYY = met.getSignificanceMatrix().At(1,1);
   evtInfo_.covXY = met.getSignificanceMatrix().At(0,1);
+
+
+  edm::Handle< std::vector<pat::Jet> > JetsHandle;
+  iEvent.getByToken(Jets_, JetsHandle);
+  auto Jets = *JetsHandle;
+
+  std::vector<pat::Jet> selected_jets;
+  if (Jets.size() > 0) {
+    for (unsigned int i = 0; i < Jets.size(); ++i) {
+      auto jet = Jets[i];
+      if (jet.pt() < 100 || fabs(jet.eta()) > 2.5) continue;
+      float NHF  = jet.neutralHadronEnergyFraction();
+      float NEMF = jet.neutralEmEnergyFraction();
+      float CHF  = jet.chargedHadronEnergyFraction();
+      float MUF  = jet.muonEnergyFraction();
+      float CEMF = jet.chargedEmEnergyFraction();
+      auto NumConst = jet.chargedMultiplicity()+jet.neutralMultiplicity();
+      //auto NumNeutralParticles = jet.neutralMultiplicity();
+      auto CHM = jet.chargedMultiplicity();
+      bool jetID = CHM>0 && CHF>0 && NumConst>1 && NEMF<0.9 && NHF < 0.9;
+      bool jetIDLepVeto = CEMF<0.8 && CHM>0 && CHF>0 && NumConst>1 && NEMF<0.9 && MUF <0.8 && NHF < 0.9;
+      if (jetID) {
+        selected_jets.push_back(jet);
+      }
+    }
+  }
+
+  edm::Handle< std::vector<pat::Muon> > MuonsHandle;
+  iEvent.getByToken(Muons_, MuonsHandle);
+  auto Muons = *MuonsHandle;
+
+
+  std::vector<pat::Muon> selected_muons;
+  if (Muons.size() > 0) {
+    for (unsigned int i = 0; i < Muons.size(); ++i) {
+      auto muon = Muons[i];
+      if (muon.pt() < 3 || fabs(muon.eta()) > 2.4 || !muon.isLooseMuon()) continue;
+      selected_muons.push_back(muon);
+    }
+  }
+
+
+  edm::Handle< std::vector<pat::Tau> > TausMCleanedHandle;
+  iEvent.getByToken(TausMCleaned_, TausMCleanedHandle);
+  auto Taus = *TausMCleanedHandle;
+
+  std::vector<pat::Tau> selected_taus;
+  if (Taus.size()>0) {
+    for (unsigned int i = 0; i < Taus.size(); ++i) {
+      auto tau = Taus[i];
+      if (tau.pt() < 10 || fabs(tau.eta()) > 2.5) continue;
+      if (!tau.tauID("byVLooseDeepTau2018v2p5VSjet")) continue;
+      selected_taus.push_back(tau);
+    }
+  }
+  
+
+  // ── Boosted Tau selection ──────────────────────────────────────────
+  edm::Handle< std::vector<pat::Tau> > TausBoostedHandle;
+  iEvent.getByToken(TausBoosted_, TausBoostedHandle);
+  auto TausBoosted = *TausBoostedHandle;
+
+  std::vector<pat::Tau> selected_boosted_taus;
+  if (TausBoosted.size() > 0) {
+      for (unsigned int i = 0; i < TausBoosted.size(); ++i) {
+          auto tau = TausBoosted[i];
+          if (tau.pt() < 10 || fabs(tau.eta()) > 2.5) continue;
+          if (!tau.tauID("byVLooseDeepTau2018v2p5VSjet")) continue;
+          selected_boosted_taus.push_back(tau);
+      }
+  }
+
+  edm::Handle< std::vector<reco::Vertex> > VerticesHandle;
+  iEvent.getByToken(Vertices_, VerticesHandle);
+
+  // Guard against empty vertex collection (pathological events)
+  if (VerticesHandle->empty()) { tree->Fill(); return; }
+  const reco::Vertex& primaryVertex = VerticesHandle->front();
+
+  // Then use primaryVertex for muon dxy/dz cuts if desired:
+  // e.g. fabs(muon.muonBestTrack()->dxy(primaryVertex.position())) < 0.2
+
+  if (selected_jets.size()>0 && selected_muons.size()>0 && (selected_taus.size()>0 || selected_boosted_taus.size() > 0)) {
+    
+    pat::Tau bestTau;
+    bool foundTau = false;
+    if (selected_taus.size() > 0) {
+        bestTau = selected_taus[0];
+        foundTau = true;
+    } else if (selected_boosted_taus.size() > 0) {
+        bestTau = selected_boosted_taus[0];
+        foundTau = true;
+    }
+
+    if (foundTau && deltaR(selected_jets[0].phi(), bestTau.phi(), selected_jets[0].eta(), bestTau.eta()) > 0.8  && \
+    deltaR(selected_jets[0].phi(), selected_muons[0].phi(), selected_jets[0].eta(), selected_muons[0].eta()) > 0.8  && \
+    deltaR(selected_muons[0].phi(), bestTau.phi(), selected_muons[0].eta(), bestTau.eta())< 0.4  && \
+    deltaR(selected_muons[0].phi(), bestTau.phi(), selected_muons[0].eta(), bestTau.eta())> 0.01 ) {
+      evtInfo_.mu_pt = selected_muons[0].pt();
+      evtInfo_.tau_pt = bestTau.pt();
+      evtInfo_.mu_eta = selected_muons[0].eta();
+      evtInfo_.tau_eta = bestTau.eta();
+      evtInfo_.mu_phi = selected_muons[0].phi();
+      evtInfo_.tau_phi = bestTau.phi();
+      evtInfo_.mu_m = selected_muons[0].mass();
+      evtInfo_.tau_m = bestTau.mass();
+    }													    
+  }
+  
+  
   
   tree->Fill();
 
   selected_jets.clear();
   selected_muons.clear();
   selected_taus.clear();
+  selected_boosted_taus.clear();
 }
 
 float fastMTTNtuples::deltaR(float phi1, float phi2, float eta1, float eta2) {
