@@ -116,11 +116,28 @@ else:
 #####
 
 if runType == 'signal':
-    import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom as tauAtMiniToolsCustom
+    if year == '2022' or year == '2022EE':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2022 as tauAtMiniToolsCustom
+    elif year == '2023' or year == '2023BPix':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2023 as tauAtMiniToolsCustom
+    elif year == '2024':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2024 as tauAtMiniToolsCustom
+    else:
+        print('Unknown year =',year,'; Use \"2022\" or \"2022EE\" or \"2023\" or \"2023BPix\" or \"2024\"')
 elif runType == 'background':
-    import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom as tauAtMiniToolsCustom
+    if year == '2022' or year == '2022EE':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2022 as tauAtMiniToolsCustom
+    elif year == '2023' or year == '2023BPix':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2023 as tauAtMiniToolsCustom
+    elif year == '2024':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_2024 as tauAtMiniToolsCustom
+    else:
+        print('Unknown year =',year,'; Use \"2022\" or \"2022EE\" or \"2023\" or \"2023BPix\" or \"2024\"')
 elif runType == 'data':
-    import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_Data as tauAtMiniToolsCustom
+    if year == '2022':
+        import BoostedDiTau.MiniAODSkimmer.adaptToRunAtMiniAODCustom_Data as tauAtMiniToolsCustom
+    else:
+        print('Unknown year =',year,'; Use \"2022\" or \"2022EE\" or \"2023\" or \"2023BPix\" or \"2024\"')
 else:
     print('Unknown runType =',runType,'; Use \"signal\" or \"background\" or \"data\"')
     exit(1)

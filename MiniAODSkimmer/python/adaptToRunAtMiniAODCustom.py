@@ -1193,7 +1193,7 @@ def addTCPNtuples(process):
                                         puDataFileName = cms.FileInPath("BoostedDiTau/MiniAODSkimmer/data/pileupHistogram-Cert_Collisions2022_355100_362760_GoldenJson-13p6TeV-69200ub-99bins.root"),
                                         puDataFileNameUp = cms.FileInPath("BoostedDiTau/MiniAODSkimmer/data/pileupHistogram-Cert_Collisions2022_355100_362760_GoldenJson-13p6TeV-72400ub-99bins.root"),
                                         puDataFileNameDown = cms.FileInPath("BoostedDiTau/MiniAODSkimmer/data/pileupHistogram-Cert_Collisions2022_355100_362760_GoldenJson-13p6TeV-66000ub-99bins.root"),
-                                        puMCFileName = cms.FileInPath("BoostedDiTau/MiniAODSkimmer/data/PileupMC2022preEE.root")
+                                        puMCFileName = cms.FileInPath("BoostedDiTau/MiniAODSkimmer/data/PileupMC2022.root")
     )
     process.tcpGenNtupleMaker = cms.Path(process.tcpGenNtuples)
 
