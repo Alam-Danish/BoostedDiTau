@@ -7,3 +7,4 @@
 *.h~
 __pycache__/
 *.pyc
+BoostedDiTauReco/SubmitNtuple/filelists/

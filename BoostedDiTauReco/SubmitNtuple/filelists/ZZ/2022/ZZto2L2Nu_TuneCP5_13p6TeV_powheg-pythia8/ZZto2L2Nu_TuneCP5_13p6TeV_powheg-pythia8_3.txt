@@ -1,0 +1,7 @@
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_93.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_94.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_95.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_96.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_97.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_98.root
+root://cmsio2.rc.ufl.edu:1094//store/user/dalam/TCPNtuple/Run3/2022preEE/ZZto2L2Nu_TuneCP5_13p6TeV_powheg-pythia8/Ntuple_ZZTo2L2Nu_2022_miniAODv4_v1/260422_094208/0000/TCPNtuple_99.root

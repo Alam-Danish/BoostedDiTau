@@ -1,2 +1,0 @@
-root://cmsxrootd.fnal.gov///store/user/mwulansa/TCPNtuple/DYJetsToLL_M-4to50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-400to600_Summer20UL18_miniAODv2_v2024/240123_182530/0000/TCPNtuple_Backgrounds_3-144.root
-root://cmsxrootd.fnal.gov///store/user/mwulansa/TCPNtuple/DYJetsToLL_M-4to50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_DYJetsToLL_M-4to50_HT-400to600_Summer20UL18_miniAODv2_v2024/240123_182530/0000/TCPNtuple_Backgrounds_3-132.root

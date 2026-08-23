@@ -1,1 +1,0 @@
-root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/MuonEG/Ntuple_MuonEG_2017D-UL2017_MiniAODv2-v1_v4/230831_165614/0000/TCPNtuple_Data_101.root

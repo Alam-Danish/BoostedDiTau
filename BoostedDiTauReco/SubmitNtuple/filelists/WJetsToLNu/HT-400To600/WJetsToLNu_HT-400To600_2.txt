@@ -1,4 +1,0 @@
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-400to600_Summer20UL17_v31/230814_100406/0000/TCPNtuple_Backgrounds_96.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-400to600_Summer20UL17_v31/230814_100406/0000/TCPNtuple_Backgrounds_97.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-400to600_Summer20UL17_v31/230814_100406/0000/TCPNtuple_Backgrounds_98.root
-root://cmseos.fnal.gov//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-400to600_Summer20UL17_v31/230814_100406/0000/TCPNtuple_Backgrounds_99.root

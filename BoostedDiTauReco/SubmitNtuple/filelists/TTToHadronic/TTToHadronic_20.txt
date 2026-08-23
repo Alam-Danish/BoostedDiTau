@@ -1,5 +1,0 @@
-root://cmsio7.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTToHadronic_Summer20UL17_miniAODv2_v31/230815_091753/0000/TCPNtuple_Backgrounds_31.root
-root://cmsio7.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTToHadronic_Summer20UL17_miniAODv2_v31/230815_091753/0000/TCPNtuple_Backgrounds_158.root
-root://cmsio7.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTToHadronic_Summer20UL17_miniAODv2_v31/230815_091753/0000/TCPNtuple_Backgrounds_849.root
-root://cmsio7.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTToHadronic_Summer20UL17_miniAODv2_v31/230815_091753/0000/TCPNtuple_Backgrounds_678.root
-root://cmsio7.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/Ntuple_TTToHadronic_Summer20UL17_miniAODv2_v31/230815_091753/0000/TCPNtuple_Backgrounds_853.root

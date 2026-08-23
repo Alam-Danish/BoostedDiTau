@@ -1,2 +1,0 @@
-root://cmsio2.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-600To800_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-600to800_Summer20UL17_v2024/240106_110121/0000/TCPNtuple_Backgrounds_158.root
-root://cmsio2.rc.ufl.edu:1094//store/user/mwulansa/TCPNtuple/WJetsToLNu_HT-600To800_TuneCP5_13TeV-madgraphMLM-pythia8/Ntuple_WJetsToLNu_HT-600to800_Summer20UL17_v2024/240106_110121/0000/TCPNtuple_Backgrounds_307.root

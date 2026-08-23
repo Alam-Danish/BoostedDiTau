@@ -1,2 +1,0 @@
-root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/SingleMuon/Ntuple_SingleMuon_2017C-UL2017_MiniAODv2-v1_v4/230831_165901/0002/TCPNtuple_Data_2605.root
-root://cmsio7.rc.ufl.edu:1094//store/user/zhangj/SingleMuon/Ntuple_SingleMuon_2017C-UL2017_MiniAODv2-v1_v4/230831_165901/0002/TCPNtuple_Data_2316.root
