@@ -20,7 +20,7 @@ import sys
 #inputfile = sys.argv[2]
 ###########
 runType = 'background'      # Options: 'signal', 'background', or 'data'
-year    = '2022preEE'       # Options: '2022preEE', '2022postEE', '2023preBPix', '2023postBPix', '2024'
+year    = '2024'       # Options: '2022preEE', '2022postEE', '2023preBPix', '2023postBPix', '2024'
 maxEvents = -1              # -1: all
 appendOutput = True
 #isMC = True
@@ -95,7 +95,8 @@ if runType == 'signal':
 elif runType == 'background':
     readFiles.extend([
         #'file:patMiniAOD_standard.root'
-        'file:root://cmsxrootd.fnal.gov//store/mc/Run3Summer22MiniAODv4/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/pilot_nanov15_130X_mcRun3_2022_realistic_v5-v2/2830000/ff237c4f-1c3e-4203-a725-5ed674c657c3.root',
+        'root://cmsxrootd.fnal.gov//store/mc/RunIII2024Summer24MiniAODv6/DYto2L-4Jets_Bin-HT-40to70-MLL-4to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v2/90001/264a4edb-45b1-444c-97c3-fa2a7da8058c.root'
+        #'file:root://cmsxrootd.fnal.gov//store/mc/Run3Summer22MiniAODv4/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/pilot_nanov15_130X_mcRun3_2022_realistic_v5-v2/2830000/ff237c4f-1c3e-4203-a725-5ed674c657c3.root',
         #'/store/relval/CMSSW_10_5_0_pre1/RelValQCD_FlatPt_15_3000HS_13/MINIAODSIM/PU25ns_103X_mcRun2_asymptotic_v3-v1/20000/A5CBC261-E3AB-C842-896F-E6AFB38DD22F.root'
         #'file:/eos/uscms/store/user/rhabibul/HtoAA/HtoAAMiniAODTest/002C691B-A0CE-A24F-8805-03B4C52C9004.root'
         #'file:root://cmseos.fnal.gov//eos/uscms/store/user/zhangj/events/ALP/UL2017/TCP_m_30_w_1_htj_100to400_slc6_amd64_gcc630_MINIAOD/TCP_m_30_w_1_htj_100to400_slc6_amd64_gcc630_MINIAOD_1.root',

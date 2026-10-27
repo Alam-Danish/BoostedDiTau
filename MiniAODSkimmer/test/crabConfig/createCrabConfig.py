@@ -1,7 +1,7 @@
 import os, sys, random
 #import numpy as np
 
-version = "v1"
+version = "v2"
  
 SAMPLES = {
     'ALP_M-10_HT-100to400_preVFPUL16':'/AToTauTau_ALP_M-10_HT-100to400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL16MiniAODAPVv2-106X_mcRun2_asymptotic_preVFP_v11-v2/MINIAODSIM',
@@ -524,64 +524,64 @@ data2022EE = {
 }
 
 data2023 = {
-    'MuonEG_2023A':'/MuonEG/Run2023A-22Sep2023-v1/MINIAOD',
-    'MuonEG_2023B':'/MuonEG/Run2023B-22Sep2023-v1/MINIAOD',
     'MuonEG_2023C':'/MuonEG/Run2023C-22Sep2023-v1/MINIAOD',
-    'MuonEG_2023D':'/MuonEG/Run2023D-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2023A':'/SingleMuon/Run2023A-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2023B':'/SingleMuon/Run2023B-22Sep2023-v1/MINIAOD',
     'SingleMuon_2023C':'/SingleMuon/Run2023C-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2023D':'/SingleMuon/Run2023D-22Sep2023-v1/MINIAOD',
-    'EGamma_2023A':'/EGamma/Run2023A-22Sep2023-v1/MINIAOD',
-    'EGamma_2023B':'/EGamma/Run2023B-22Sep2023-v1/MINIAOD',
     'EGamma_2023C':'/EGamma/Run2023C-22Sep2023-v1/MINIAOD',
-    'EGamma_2023D':'/EGamma/Run2023D-22Sep2023-v1/MINIAOD',
 }
 
 data2023BPix = {
-    'MuonEG_2023B':'/MuonEG/Run2023B-22Sep2023-v1/MINIAOD',
-    'MuonEG_2023C':'/MuonEG/Run2023C-22Sep2023-v1/MINIAOD',
     'MuonEG_2023D':'/MuonEG/Run2023D-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2023B':'/SingleMuon/Run2023B-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2023C':'/SingleMuon/Run2023C-22Sep2023-v1/MINIAOD',
     'SingleMuon_2023D':'/SingleMuon/Run2023D-22Sep2023-v1/MINIAOD',
-    'EGamma_2023B':'/EGamma/Run2023B-22Sep2023-v1/MINIAOD',
-    'EGamma_2023C':'/EGamma/Run2023C-22Sep2023-v1/MINIAOD',
     'EGamma_2023D':'/EGamma/Run2023D-22Sep2023-v1/MINIAOD',
 }
 
 data2024 = {
-    'MuonEG_2024B':'/MuonEG/Run2024B-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024C':'/MuonEG/Run2024C-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024D':'/MuonEG/Run2024D-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024E':'/MuonEG/Run2024E-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024F':'/MuonEG/Run2024F-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024G':'/MuonEG/Run2024G-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024H':'/MuonEG/Run2024H-22Sep2023-v1/MINIAOD',
-    'MuonEG_2024I':'/MuonEG/Run2024I-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024B':'/SingleMuon/Run2024B-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024C':'/SingleMuon/Run2024C-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024D':'/SingleMuon/Run2024D-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024E':'/SingleMuon/Run2024E-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024F':'/SingleMuon/Run2024F-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024G':'/SingleMuon/Run2024G-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024H':'/SingleMuon/Run2024H-22Sep2023-v1/MINIAOD',
-    'SingleMuon_2024I':'/SingleMuon/Run2024I-22Sep2023-v1/MINIAOD',
-    'EGamma_2024B':'/EGamma/Run2024B-22Sep2023-v1/MINIAOD',
-    'EGamma_2024C':'/EGamma/Run2024C-22Sep2023-v1/MINIAOD',
-    'EGamma_2024D':'/EGamma/Run2024D-22Sep2023-v1/MINIAOD',
-    'EGamma_2024E':'/EGamma/Run2024E-22Sep2023-v1/MINIAOD',
-    'EGamma_2024F':'/EGamma/Run2024F-22Sep2023-v1/MINIAOD',
-    'EGamma_2024G':'/EGamma/Run2024G-22Sep2023-v1/MINIAOD',
-    'EGamma_2024H':'/EGamma/Run2024H-22Sep2023-v1/MINIAOD',
-    'EGamma_2024I':'/EGamma/Run2024I-22Sep2023-v1/MINIAOD',
+    'MuonEG_2024C':'/MuonEG/Run2024C-MINIv6NANOv15-v1/MINIAOD',
+    'MuonEG_2024D':'/MuonEG/Run2024D-MINIv6NANOv15-v1/MINIAOD',
+    'MuonEG_2024E':'/MuonEG/Run2024E-MINIv6NANOv15-v1/MINIAOD',
+    'MuonEG_2024F':'/MuonEG/Run2024F-MINIv6NANOv15-v2/MINIAOD',
+    'MuonEG_2024G':'/MuonEG/Run2024G-MINIv6NANOv15-v3/MINIAOD',
+    'MuonEG_2024H':'/MuonEG/Run2024H-MINIv6NANOv15-v2/MINIAOD',
+    'MuonEG_2024I_v1':'/MuonEG/Run2024I-MINIv6NANOv15-v2/MINIAOD',
+    'MuonEG_2024I_v2':'/MuonEG/Run2024I-MINIv6NANOv15_v2-v2/MINIAOD',
+    'Muon0_2024C':'/Muon0/Run2024C-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024D':'/Muon0/Run2024D-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024E':'/Muon0/Run2024E-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024F':'/Muon0/Run2024F-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024G':'/Muon0/Run2024G-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024H':'/Muon0/Run2024H-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024I_v1':'/Muon0/Run2024I-MINIv6NANOv15-v1/MINIAOD',
+    'Muon0_2024I_v2':'/Muon0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD',
+    'Muon1_2024C':'/Muon1/Run2024C-MINIv6NANOv15-v1/MINIAOD',
+    'Muon1_2024D':'/Muon1/Run2024D-MINIv6NANOv15-v1/MINIAOD',
+    'Muon1_2024E':'/Muon1/Run2024E-MINIv6NANOv15-v1/MINIAOD',
+    'Muon1_2024F':'/Muon1/Run2024F-MINIv6NANOv15-v1/MINIAOD',
+    'Muon1_2024G':'/Muon1/Run2024G-MINIv6NANOv15-v2/MINIAOD',
+    'Muon1_2024H':'/Muon1/Run2024H-MINIv6NANOv15-v2/MINIAOD',
+    'Muon1_2024I_v1':'/Muon1/Run2024I-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024C':'/EGamma0/Run2024C-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024D':'/EGamma0/Run2024D-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024E':'/EGamma0/Run2024E-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024F':'/EGamma0/Run2024F-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024G':'/EGamma0/Run2024G-MINIv6NANOv15-v2/MINIAOD',
+    'EGamma0_2024H':'/EGamma0/Run2024H-MINIv6NANOv15-v2/MINIAOD',
+    'EGamma0_2024I_v1':'/EGamma0/Run2024I-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma0_2024I_v2':'/EGamma0/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD',
+    'EGamma1_2024C':'/EGamma1/Run2024C-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024D':'/EGamma1/Run2024D-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024E':'/EGamma1/Run2024E-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024F':'/EGamma1/Run2024F-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024G':'/EGamma1/Run2024G-MINIv6NANOv15-v2/MINIAOD',
+    'EGamma1_2024H':'/EGamma1/Run2024H-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024I_v1':'/EGamma1/Run2024I-MINIv6NANOv15-v1/MINIAOD',
+    'EGamma1_2024I_v2':'/EGamma1/Run2024I-MINIv6NANOv15_v2-v1/MINIAOD',
 }
 
 
 
 
 
-for sample in SAMPLES2024.keys():
+for sample in data2024.keys():
     fname = "crabConfig_"+sample+".py"
     print(fname)
     f = open(fname, "w")
@@ -598,19 +598,20 @@ config.General.transferLogs = True
 
 config.JobType.pluginName = 'Analysis'
 config.JobType.allowUndistributedCMSSW = True
-#config.JobType.numCores=2
+#config.JobType.numCores=1
 config.JobType.maxMemoryMB = 2500
+#config.JobType.maxJobRuntimeMin = 1800
 
-config.JobType.psetName = '../rerunTauRecoOnMiniAOD_WithClean_Custom.py'
+config.JobType.psetName = '../rerunTauRecoOnMiniAOD_WithClean_Custom_Data.py'
 
-config.Data.inputDataset = '"""+SAMPLES2024[sample]+"""'
+config.Data.inputDataset = '"""+data2024[sample]+"""'
 config.Data.inputDBS = 'global'
-config.Data.splitting = 'FileBased'                                                                                                                         
-config.Data.unitsPerJob = 2
+#config.Data.splitting = 'FileBased'                                                                                                                         
+#config.Data.unitsPerJob = 2
 
-#config.Data.splitting = 'Automatic'
+config.Data.splitting = 'Automatic'
 #config.Data.unitsPerJob = 50
-#config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions22/Cert_Collisions2022_355100_362760_Golden.json'
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions24/Cert_Collisions2024_378981_386951_Golden.json'
 
 config.Data.outLFNDirBase = '/store/user/dalam/TCPNtuple/Run3/2024'
 config.Data.publication = False
@@ -618,8 +619,6 @@ config.Data.outputDatasetTag = 'Ntuple_"""+sample+"""_miniAODv6_"""+version+"""'
 
 config.Site.storageSite = 'T2_US_Florida'
 #config.Site.whitelist = ['T2_CH_CERN']
-#config.Site.ignoreGlobalBlacklist = True
+config.Site.ignoreGlobalBlacklist = True
 
     """)
-
-

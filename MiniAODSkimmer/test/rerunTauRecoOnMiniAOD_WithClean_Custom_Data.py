@@ -20,7 +20,7 @@ import sys
 #inputfile = sys.argv[2]
 ###########
 runType = 'data'          # Options: 'signal', 'background', or 'data'
-year    = '2022EE'       # Options: '2022', '2022EE', '2023', '2023BPix', '2024'
+year    = '2024'       # Options: '2022', '2022EE', '2023', '2023BPix', '2024'
 maxEvents = -1              # -1: all
 appendOutput = True
 #isMC = True

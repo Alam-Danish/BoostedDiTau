@@ -21,7 +21,7 @@ import sys
 ###########
 runType = 'signal'          # Options: 'signal', 'background', or 'data'
 year    = '2024'       # Options: '2022', '2022EE', '2023', '2023BPix', '2024'
-maxEvents = -1              # -1: all
+maxEvents = -1             # -1: all
 appendOutput = True
 #isMC = True
 ########
@@ -89,7 +89,8 @@ if runType == 'signal':
         #'file:patMiniAOD_standard.root'
         #'file:/eos/uscms/store/user/rhabibul/HtoAA/HtoAAMiniAODTest/4B62060B-AC2A-694A-8E56-B484FD41BCB2.root'
         #'root://eos.grif.fr:11000/eos/grif/cms/grif/store/mc/RunIII2024Summer24MiniAODv6/GluGluALPtoTauTau_Bin-HT-400toInf_Par-M-10_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v2/2550000/11315589-2c14-434d-9758-453df962c4ef.root',
-        'root://cmsxrootd.fnal.gov//store/mc/RunIII2024Summer24MiniAODv6/GluGluALPtoTauTau_Bin-HT-100to400_Par-M-10_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v3/120000/979834f5-d140-4ad4-9bf0-4e92b18147ad.root',
+        'root://cmsxrootd.fnal.gov//store/mc/RunIII2024Summer24MiniAODv6/DYto2L-4Jets_Bin-HT-40to70-MLL-4to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v2/90001/264a4edb-45b1-444c-97c3-fa2a7da8058c.root'
+        #'root://cmsxrootd.fnal.gov//store/mc/RunIII2024Summer24MiniAODv6/GluGluALPtoTauTau_Bin-HT-100to400_Par-M-10_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v3/120000/979834f5-d140-4ad4-9bf0-4e92b18147ad.root',
     ])
 elif runType == 'background':
     readFiles.extend([
@@ -98,7 +99,8 @@ elif runType == 'background':
         #'file:/eos/uscms/store/user/rhabibul/HtoAA/HtoAAMiniAODTest/002C691B-A0CE-A24F-8805-03B4C52C9004.root'
         #'root://cmsxrootd.fnal.gov//store/mc/Run3Summer22MiniAODv4/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/pilot_nanov15_130X_mcRun3_2022_realistic_v5-v2/2830000/ff237c4f-1c3e-4203-a725-5ed674c657c3.root'
         #'file:root://cmsxrootd.fnal.gov//store/mc/Run3Summer22MiniAODv4/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/pilot_nanov15_130X_mcRun3_2022_realistic_v5-v2/2830000/ff237c4f-1c3e-4203-a725-5ed674c657c3.root',
-        'file:root://cmsxrootd.hep.wisc.edu:1094//store/mc/RunIII2024Summer24MiniAODv6/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/Pilot2024wmLHEGS_150X_mcRun3_2024_realistic_v2-v2/2820000/aeaa8a79-c6ca-4c04-8428-9e7d41662125.root'
+        #'file:root://cmsxrootd.hep.wisc.edu:1094//store/mc/RunIII2024Summer24MiniAODv6/DYJetsToLL_M-50_TuneCP5_13p6TeV-madgraphMLM-pythia8/MINIAODSIM/Pilot2024wmLHEGS_150X_mcRun3_2024_realistic_v2-v2/2820000/aeaa8a79-c6ca-4c04-8428-9e7d41662125.root'
+        'root://cmsxrootd.fnal.gov//store/mc/RunIII2024Summer24MiniAODv6/DYto2L-4Jets_Bin-HT-40to70-MLL-4to50_TuneCP5_13p6TeV_madgraphMLM-pythia8/MINIAODSIM/150X_mcRun3_2024_realistic_v2-v2/90001/264a4edb-45b1-444c-97c3-fa2a7da8058c.root'
     ])
 elif runType == 'data':
     readFiles.extend([

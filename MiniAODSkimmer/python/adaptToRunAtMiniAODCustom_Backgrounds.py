@@ -251,7 +251,7 @@ def addTauReRecoCustom(process):
 def convertModuleToMiniAODInput(process, name):
     module = getattr(process, name)
     if hasattr(module, 'particleFlowSrc'):
-        if "ElectronCleanedPackedCandidateProducer" in name or "MuonCleanedPackeCandidateProducer" in name:
+        if "ElectronCleanedPackedCandidateProducer" in name or "MuonCleanedPackedCandidateProducer" in name:
             module.particleFlowSrc = cms.InputTag("packedPFCandidates", "", "")
         #elif "LowPtElectronCleaned" in name:
         #    module.particleFlowSrc = cms.InputTag('PackedCandsLowPtElectronCleaned','packedPFCandidatesLowPtElectronCleaned')
